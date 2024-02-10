@@ -2,6 +2,9 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
+const userRoutes = require("./routes/user.routes");
+const authRoutes = require("./routes/auth.routes");
+const bookingRoutes = require("./routes/booking.routes");
 
 require("dotenv").config();
 
@@ -13,9 +16,15 @@ const corsOptions = {
   origin: "http://localhost:5173", // Dominios autorizados
   methods: "*", // Métodos permitidos
   optionsSuccessStatus: 204,
+  credentials: true
 };
 app.use(cors(corsOptions));
 app.use(express.json());
+
+// USO DE RUTAS
+app.use("/api/users", userRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/booking", bookingRoutes);
 
 // Uso de rutas
 const startServer = async () => {
