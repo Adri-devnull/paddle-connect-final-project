@@ -38,9 +38,6 @@ const UserScheme = mongoose.Schema(
     level: {
       type: Number,
       required: true
-    },
-    average: {
-      type: Number
     }
   },
   {

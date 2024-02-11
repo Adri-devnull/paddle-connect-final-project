@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const userRoutes = require("./routes/user.routes");
 const authRoutes = require("./routes/auth.routes");
 const bookingRoutes = require("./routes/booking.routes");
+const messageRoutes = require("./routes/message.routes");
 
 require("dotenv").config();
 
@@ -25,6 +26,7 @@ app.use(express.json());
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/booking", bookingRoutes);
+app.use("/api/messages", messageRoutes);
 
 // Uso de rutas
 const startServer = async () => {
