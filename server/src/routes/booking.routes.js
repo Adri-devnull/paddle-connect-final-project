@@ -6,12 +6,12 @@ const bookingController = require("../controllers/booking.controller");
 bookingRoutes.get("/", bookingController.getAllBookings);
 
 // Crear una nueva reserva
-bookingRoutes.post("/", bookingController.createBooking);
+bookingRoutes.post("/:id", bookingController.createBooking);
 
-// Actualizar un usuario
+// Actualizar una reserva
 bookingRoutes.patch("/:id", bookingController.updateBooking);
 
-// Actualizar un usuario
+// Borrar una reserva
 bookingRoutes.delete("/:id", bookingController.deleteBooking);
 
 module.exports = bookingRoutes;

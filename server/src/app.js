@@ -6,6 +6,7 @@ const userRoutes = require("./routes/user.routes");
 const authRoutes = require("./routes/auth.routes");
 const bookingRoutes = require("./routes/booking.routes");
 const messageRoutes = require("./routes/message.routes");
+const cookieParser = require("cookie-parser");
 
 require("dotenv").config();
 
@@ -21,6 +22,7 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 app.use(express.json());
+app.use(cookieParser());
 
 // USO DE RUTAS
 app.use("/api/users", userRoutes);
