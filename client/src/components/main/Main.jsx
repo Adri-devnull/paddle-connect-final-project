@@ -24,7 +24,7 @@ const Main = () => {
 				)}
 				{!userData && (
 					<p>
-						<span>Inicia sesion</span> para apuntarte.
+						<span>Inicia sesion</span> para apuntarte o para buscar un jugador.
 					</p>
 				)}
 				<Modal withButtonClose={false}>{content}</Modal>
