@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import Main from '../components/main/Main';
+import PlayerInfo from '../components/player-info/PlayerInfo';
 import Layout from '../layouts/Layout';
 
 const Router = () => {
@@ -7,6 +8,7 @@ const Router = () => {
 		<Routes>
 			<Route path='/' element={<Layout />}>
 				<Route index element={<Main />} />
+				<Route path='/playerInfo' element={<PlayerInfo />} />
 			</Route>
 		</Routes>
 	);

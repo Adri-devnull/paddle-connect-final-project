@@ -2,7 +2,16 @@ const { mongoose } = require("mongoose");
 
 const BookingScheme = mongoose.Schema(
   {
-    schedule: {
+    id: {
+      type: String,
+      trim: true
+    },
+    scheduleStart: {
+      type: String,
+      required: true,
+      trim: true
+    },
+    scheduleEnd: {
       type: String,
       required: true,
       trim: true

@@ -15,13 +15,16 @@ bookingController.getAllBookings = async (req, res) => {
 
 // Crear una nueva reserva de partida
 bookingController.createBooking = async (req, res) => {
-  const { schedule, location, message } = req.body;
-  if (!schedule || !location)
+  const { scheduleStart, scheduleEnd, location, message } = req.body;
+  const { id } = req.params;
+  if (!scheduleStart || !location || !scheduleEnd)
     return res.status(400).send({ error: "Bad request." + err });
 
   try {
     const newBooking = new BookingModel({
-      schedule,
+      id,
+      scheduleStart,
+      scheduleEnd,
       location,
       message
     });
