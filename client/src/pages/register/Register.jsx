@@ -5,7 +5,6 @@ import { postData } from '../../utils/api/common.api';
 const Register = ({ setContent }) => {
 	// ESTADO QUE GUARDA LA INFORMACION DEL NUEVO USUARIO
 	const [infoUser, setInfoUser] = useState({});
-	console.log(infoUser);
 	return (
 		<div>
 			<form onSubmit={handleSubmit}>
@@ -147,9 +146,8 @@ const getInputValues = (input, infoUser, setInfoUser) => {
 
 // REGISTRAR NUEVO USUARIO A LA BASE DE DATOS
 const registerNewUser = async (infoUser, setContent) => {
-	const newUser = await postData(URLS.AUTH_REGISTER, infoUser);
+	await postData(URLS.AUTH_REGISTER, infoUser);
 	setContent();
-	console.log(newUser);
 };
 
 export default Register;

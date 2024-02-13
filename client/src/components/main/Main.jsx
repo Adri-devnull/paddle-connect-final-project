@@ -62,4 +62,5 @@ const getAllPlayersForGame = async setPlayersWaitingForGame => {
 	const playersForGame = await getData(URLS.API_BOOKING);
 	setPlayersWaitingForGame(playersForGame);
 };
+
 export default Main;

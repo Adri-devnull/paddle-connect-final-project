@@ -1,51 +1,40 @@
+import { useState } from 'react';
+import { POSITIONS } from '../../constants/positions';
+import Filters from '../filters/Filters';
 import Player from '../player/Player';
 import { StyledPlayersForGameContainer } from './styles';
 
 const PlayersForGame = ({ playersWaitingForGame }) => {
+	const [position, setPosition] = useState(0);
+	const filteredPlayers = filteredByPosition(playersWaitingForGame, position);
 	return (
-		<div>
+		<>
+			<Filters setPosition={setPosition} />
 			<div>
-				<h3>Filtrar por</h3>
-				<div>
-					<label htmlFor='position'>Posicion</label>
-					<select name='position' id='position'>
-						<option value='right'>Derecha</option>
-						<option value='left'>Izquierda</option>
-					</select>
-				</div>
-				<div>
-					<label htmlFor='level'>Nivel</label>
-					<select name='level' id='level'>
-						<option value='2'>2</option>
-						<option value='2.5'>2.5</option>
-						<option value='3'>3</option>
-						<option value='3.5'>3.5</option>
-						<option value='4'>4</option>
-						<option value='4.5'>5.5</option>
-						<option value='5'>5</option>
-					</select>
-				</div>
-				<div>
-					<label htmlFor='schedule'>Horario</label>
-					<select name='schedule' id='schedule'>
-						<option value='sooner'>Mas pronto</option>
-						<option value='later'>Mas tarde</option>
-					</select>
-				</div>
+				<StyledPlayersForGameContainer>
+					{filteredPlayers.map(player => (
+						<Player
+							key={player.id}
+							id={player.id}
+							scheduleStart={player.scheduleStart}
+							scheduleEnd={player.scheduleEnd}
+							location={player.location}
+						/>
+					))}
+				</StyledPlayersForGameContainer>
 			</div>
-			<StyledPlayersForGameContainer>
-				{playersWaitingForGame.map(player => (
-					<Player
-						key={player.id}
-						id={player.id}
-						scheduleStart={player.scheduleStart}
-						scheduleEnd={player.scheduleEnd}
-						location={player.location}
-					/>
-				))}
-			</StyledPlayersForGameContainer>
-		</div>
+		</>
 	);
+};
+
+// FUNCION PARA FILTRAR POR POSICION
+const filteredByPosition = (playersWaitingForGame, position) => {
+	const playersFiltered = [...playersWaitingForGame];
+	if (position === 0) return playersFiltered;
+	return playersWaitingForGame.filter(player => {
+		const playerPosition = POSITIONS[player.position.toUpperCase()];
+		return playerPosition === position;
+	});
 };
 
 export default PlayersForGame;
