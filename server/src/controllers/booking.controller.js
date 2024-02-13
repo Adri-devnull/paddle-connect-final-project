@@ -24,13 +24,15 @@ bookingController.createBooking = async (req, res) => {
   try {
     const userInfo = await UserModel.findById({ _id: id });
     const userPosition = userInfo.position;
+    const userLevel = userInfo.level;
     const newBooking = new BookingModel({
       id,
       scheduleStart,
       scheduleEnd,
       location,
       message,
-      position: userPosition
+      position: userPosition,
+      level: userLevel
     });
 
     await newBooking.save();

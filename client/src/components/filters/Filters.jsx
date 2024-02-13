@@ -1,6 +1,7 @@
+import { LEVELS } from '../../constants/level';
 import { POSITIONS } from '../../constants/positions';
 
-const Filters = ({ setPosition }) => {
+const Filters = ({ setPosition, setLevel }) => {
 	return (
 		<div>
 			<div>
@@ -10,9 +11,7 @@ const Filters = ({ setPosition }) => {
 					<select
 						name='position'
 						id='position'
-						onChange={event =>
-							changePosition(Number(event.target.value), setPosition)
-						}
+						onChange={event => setPosition(Number(event.target.value))}
 					>
 						<option value={POSITIONS.BOTH}>Todos</option>
 						<option value={POSITIONS.RIGHT}>Derecha</option>
@@ -21,14 +20,19 @@ const Filters = ({ setPosition }) => {
 				</div>
 				<div>
 					<label htmlFor='level'>Nivel</label>
-					<select name='level' id='level'>
-						<option value='2'>2</option>
-						<option value='2.5'>2.5</option>
-						<option value='3'>3</option>
-						<option value='3.5'>3.5</option>
-						<option value='4'>4</option>
-						<option value='4.5'>5.5</option>
-						<option value='5'>5</option>
+					<select
+						name='level'
+						id='level'
+						onChange={event => setLevel(Number(event.target.value))}
+					>
+						<option value={LEVELS.ALL}>Todos</option>
+						<option value={LEVELS.JUNIOR}>2</option>
+						<option value={LEVELS.MID_JUNIOR}>2.5</option>
+						<option value={LEVELS.MIDDLE}>3</option>
+						<option value={LEVELS.ADVANCED}>3.5</option>
+						<option value={LEVELS.MID_PRO}>4</option>
+						<option value={LEVELS.PRO}>4.5</option>
+						<option value={LEVELS.JESUSCRIST}>5</option>
 					</select>
 				</div>
 				<div>
@@ -43,7 +47,4 @@ const Filters = ({ setPosition }) => {
 	);
 };
 
-const changePosition = (value, setPosition) => {
-	setPosition(value);
-};
 export default Filters;
