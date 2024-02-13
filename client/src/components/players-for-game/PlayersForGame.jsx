@@ -8,11 +8,17 @@ import { StyledPlayersForGameContainer } from './styles';
 const PlayersForGame = ({ playersWaitingForGame }) => {
 	const [position, setPosition] = useState(0);
 	const [level, setLevel] = useState(0);
+	const [location, setLocation] = useState('');
 	let filteredPlayers = filteredByPosition(playersWaitingForGame, position);
 	filteredPlayers = filteredByLevel(filteredPlayers, level);
+	filteredPlayers = filterbByLocation(filteredPlayers, location);
 	return (
 		<>
-			<Filters setPosition={setPosition} setLevel={setLevel} />
+			<Filters
+				setPosition={setPosition}
+				setLevel={setLevel}
+				setLocation={setLocation}
+			/>
 			<div>
 				<StyledPlayersForGameContainer>
 					{filteredPlayers.map(player => (
@@ -48,4 +54,11 @@ const filteredByLevel = (filteredPlayers, level) => {
 		return playerLevel === level;
 	});
 };
+
+// FUNCION PARA FILTRAR POR LOCALIZACION
+const filterbByLocation = (filteredPlayers, location) => {
+	if (location === '') return filteredPlayers;
+	return filteredPlayers.filter(player => player.location.includes(location));
+};
+
 export default PlayersForGame;

@@ -1,11 +1,20 @@
 import { LEVELS } from '../../constants/level';
 import { POSITIONS } from '../../constants/positions';
 
-const Filters = ({ setPosition, setLevel }) => {
+const Filters = ({ setPosition, setLevel, setLocation }) => {
 	return (
 		<div>
 			<div>
 				<h3>Filtrar por</h3>
+				<div>
+					<label htmlFor='location'>Localizacion</label>
+					<input
+						type='text'
+						name='location'
+						id='location'
+						onChange={event => setLocation(event.target.value)}
+					/>
+				</div>
 				<div>
 					<label htmlFor='position'>Posicion</label>
 					<select
@@ -33,13 +42,6 @@ const Filters = ({ setPosition, setLevel }) => {
 						<option value={LEVELS.MID_PRO}>4</option>
 						<option value={LEVELS.PRO}>4.5</option>
 						<option value={LEVELS.JESUSCRIST}>5</option>
-					</select>
-				</div>
-				<div>
-					<label htmlFor='schedule'>Horario</label>
-					<select name='schedule' id='schedule'>
-						<option value='sooner'>Mas pronto</option>
-						<option value='later'>Mas tarde</option>
 					</select>
 				</div>
 			</div>
