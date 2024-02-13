@@ -1,5 +1,6 @@
 const { v4 } = require("uuid");
 const BookingModel = require("../models/booking.model");
+const UserModel = require("../models/user.model");
 
 const bookingController = {};
 
@@ -21,15 +22,20 @@ bookingController.createBooking = async (req, res) => {
     return res.status(400).send({ error: "Bad request." + err });
 
   try {
+    const userInfo = await UserModel.findById({ _id: id });
+    const userPosition = userInfo.position;
     const newBooking = new BookingModel({
       id,
       scheduleStart,
       scheduleEnd,
       location,
-      message
+      message,
+      position: userPosition
     });
 
     await newBooking.save();
+
+    await UserModel.updateOne({ _id: id }, { $set: { booked: true } });
 
     const allBookings = await BookingModel.find();
     return res.status(200).send(allBookings);
@@ -62,14 +68,17 @@ bookingController.deleteBooking = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const booking = await BookingModel.findById(id);
+    const booking = await BookingModel.find({ id });
 
     if (!booking) return res.status(409).send({ error: "Booking not exists" });
 
-    await BookingModel.deleteOne({ _id: id });
-
+    await BookingModel.deleteOne({ id });
+    await UserModel.updateOne({ _id: id }, { $set: { booked: false } });
+    const userUpdated = await UserModel.find({ id });
     const allBookings = await BookingModel.find();
-    return res.status(200).send(allBookings);
+    return res
+      .status(200)
+      .send({ bookings: allBookings, userData: userUpdated });
   } catch (err) {
     return res.status(500).send({ error: "Error reading database." + err });
   }

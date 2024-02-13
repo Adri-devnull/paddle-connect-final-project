@@ -12,7 +12,7 @@ authController.login = async (req, res) => {
     const { email, password } = req.body;
 
     const userFound = await UserModel.findOne({ email });
-
+    console.log(userFound);
     if (!userFound)
       return res.status(400).send({
         error: "The email does not exist"
@@ -38,7 +38,8 @@ authController.login = async (req, res) => {
       active: userFound.active,
       image: userFound.image,
       position: userFound.position,
-      level: userFound.level
+      level: userFound.level,
+      booked: userFound.booked
     });
   } catch (error) {
     return res.status(500).send({ error: error.message });
@@ -109,7 +110,8 @@ authController.verifyToken = async (req, res) => {
       gender: userFound.gender,
       img: userFound.img,
       position: userFound.position,
-      level: userFound.level
+      level: userFound.level,
+      booked: userFound.booked
     });
   } catch (err) {
     return res.status(500).send({ error: err });

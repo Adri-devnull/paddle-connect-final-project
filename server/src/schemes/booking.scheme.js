@@ -24,6 +24,9 @@ const BookingScheme = mongoose.Schema(
     message: {
       type: String,
       trim: true
+    },
+    position: {
+      type: String
     }
   },
   {

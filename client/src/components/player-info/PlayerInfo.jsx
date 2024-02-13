@@ -7,15 +7,15 @@ const PlayerInfo = () => {
 	return (
 		<div>
 			<div>
-				<img src='' alt='' />
+				<img src='/assets/images/user.svg' alt='' />
 			</div>
 			<div>
-				<p>{data.name}</p>
-				<p>{data.username}</p>
-				<p>{data.email}</p>
-				<p>{data.gender}</p>
-				<p>{data.level}</p>
-				<p>{data.position}</p>
+				<p>Nombre: {data.name}</p>
+				<p>Usuario: {data.username}</p>
+				<p>Email: {data.email}</p>
+				<p>Genero: {data.gender}</p>
+				<p>Nivel: {data.level}</p>
+				<p>Posicion: {data.position}</p>
 			</div>
 			<div>
 				<button onClick={() => navigate('/')}>Volver</button>

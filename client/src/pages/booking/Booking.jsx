@@ -8,7 +8,6 @@ const Booking = ({ setContent }) => {
 	const [bookingInfo, setBookingInfo] = useState({});
 	const { userData } = useContext(AuthContext);
 	const id = userData.id;
-	console.log(bookingInfo);
 	return (
 		<div>
 			<form>

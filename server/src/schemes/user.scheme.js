@@ -38,6 +38,10 @@ const UserScheme = mongoose.Schema(
     level: {
       type: Number,
       required: true
+    },
+    booked: {
+      type: Boolean,
+      default: false
     }
   },
   {

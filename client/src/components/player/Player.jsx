@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { URLS } from '../../constants/urls';
 import { AuthContext } from '../../contexts/AuthContext';
 import { getDataById } from '../../utils/api/common.api';
+import { StyledInfoContainer, StyledPlayerContainer } from './styles';
 
 const Player = ({ id, scheduleStart, scheduleEnd, location }) => {
 	const [player, setPlayer] = useState([]);
@@ -13,22 +14,22 @@ const Player = ({ id, scheduleStart, scheduleEnd, location }) => {
 	}, []);
 
 	return (
-		<div>
+		<StyledPlayerContainer>
 			<div>
 				<img src='/assets/images/user.svg' alt='' />
 			</div>
 			<div>
-				<div>
+				<StyledInfoContainer>
 					<span>{player.username}</span>
 					<span>{location}</span>
-				</div>
-				<div>
-					<span>{player.position}</span>
-					<span>{player.level}</span>
-				</div>
+				</StyledInfoContainer>
+				<StyledInfoContainer>
+					<span>Posicion: {player.position}</span>
+					<span>Nivel: {player.level}</span>
+				</StyledInfoContainer>
 				<div>
 					<span>{scheduleStart}</span>
-					<span> a </span>
+					<span> / </span>
 					<span>{scheduleEnd}</span>
 				</div>
 			</div>
@@ -42,7 +43,7 @@ const Player = ({ id, scheduleStart, scheduleEnd, location }) => {
 					<button>Invitar</button>
 				</div>
 			)}
-		</div>
+		</StyledPlayerContainer>
 	);
 };
 
