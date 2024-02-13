@@ -12,7 +12,6 @@ authController.login = async (req, res) => {
     const { email, password } = req.body;
 
     const userFound = await UserModel.findOne({ email });
-    console.log(userFound);
     if (!userFound)
       return res.status(400).send({
         error: "The email does not exist"

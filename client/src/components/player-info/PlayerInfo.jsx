@@ -19,6 +19,7 @@ const PlayerInfo = () => {
 			</div>
 			<div>
 				<button onClick={() => navigate('/')}>Volver</button>
+				<button>Poner comentario al jugador</button>
 			</div>
 		</div>
 	);

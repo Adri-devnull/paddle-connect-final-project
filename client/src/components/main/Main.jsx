@@ -36,7 +36,7 @@ const Main = () => {
 							deleteBooked(userData.id, setPlayersWaitingForGame, setUserData)
 						}
 					>
-						Eliminar reserva
+						Eliminarme de la lista
 					</button>
 				)}
 				{!userData && (

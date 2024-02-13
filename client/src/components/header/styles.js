@@ -4,4 +4,10 @@ const StyledHeader = styled.header`
 	display: flex;
 `;
 
-export { StyledHeader };
+const StyledInputBurguer = styled.input`
+	z-index: 99;
+	position: fixed;
+	background-image: url('assets/images/menu.svg');
+`;
+
+export { StyledHeader, StyledInputBurguer };
