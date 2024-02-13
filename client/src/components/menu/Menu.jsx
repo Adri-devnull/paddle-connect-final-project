@@ -19,7 +19,7 @@ const Menu = ({ isChecked }) => {
 			<nav>
 				<ul>
 					<Link>Mi perfil</Link>
-					<Link>Comentarios</Link>
+					<Link to='/comments'>Comentarios</Link>
 					<Link>Invitaciones</Link>
 					<Link>Ultimos partidos</Link>
 				</ul>
