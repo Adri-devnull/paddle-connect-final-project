@@ -1,5 +1,6 @@
 const { v4 } = require("uuid");
 const MessageModel = require("../models/message.model");
+const UserModel = require("../models/user.model");
 
 const messageController = {};
 
@@ -18,13 +19,16 @@ messageController.createMessage = async (req, res) => {
   const { message, average, senderId } = req.body;
   const { id } = req.params;
   if (!message) return res.status(400).send({ error: "Bad request." + err });
-
   try {
+    const userSender = await UserModel.findById(senderId);
     const newMessage = new MessageModel({
       id,
       message,
       average,
-      senderId
+      userSender: {
+        id: userSender._id,
+        name: userSender.name
+      }
     });
 
     await newMessage.save();

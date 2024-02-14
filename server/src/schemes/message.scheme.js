@@ -5,8 +5,8 @@ const MessageScheme = mongoose.Schema(
     id: {
       type: String
     },
-    senderId: {
-      type: String
+    userSender: {
+      type: Object
     },
     average: {
       type: Number

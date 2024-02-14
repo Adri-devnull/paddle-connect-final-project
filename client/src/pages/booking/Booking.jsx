@@ -3,14 +3,24 @@ import { URLS } from '../../constants/urls';
 import { AuthContext } from '../../contexts/AuthContext';
 import { postData } from '../../utils/api/common.api';
 
-const Booking = ({ setContent }) => {
+const Booking = ({ setContent, setPlayersWaitingForGame }) => {
 	const [turn, setTurn] = useState(0);
 	const [bookingInfo, setBookingInfo] = useState({});
 	const { userData } = useContext(AuthContext);
 	const id = userData.id;
 	return (
 		<div>
-			<form>
+			<form
+				onSubmit={event =>
+					signUpAvaiblePlayerList(
+						event,
+						id,
+						bookingInfo,
+						setContent,
+						setPlayersWaitingForGame
+					)
+				}
+			>
 				<div>
 					<label htmlFor='turn'>Selecciona Turno</label>
 					<div>
@@ -122,9 +132,7 @@ const Booking = ({ setContent }) => {
 					/>
 				</div>
 				<div>
-					<button onClick={() => signUpAvaiblePlayerList(id, bookingInfo)}>
-						Apuntarme
-					</button>
+					<button>Apuntarme</button>
 					<button type='button' onClick={() => setContent()}>
 						Cancelar
 					</button>
@@ -142,8 +150,20 @@ const getInputValues = (input, bookingInfo, setBookingInfo) => {
 };
 
 // FUNCION PARA APUNTARME A LA LISTA DE JUGADORES DISPONIBLES
-const signUpAvaiblePlayerList = async (id, bookingInfo) => {
-	await postData(`${URLS.API_BOOKING}/${id}`, bookingInfo);
+const signUpAvaiblePlayerList = async (
+	event,
+	id,
+	bookingInfo,
+	setContent,
+	setPlayersWaitingForGame
+) => {
+	event.preventDefault();
+	const updatedPlayers = await postData(
+		`${URLS.API_BOOKING}/${id}`,
+		bookingInfo
+	);
+	setPlayersWaitingForGame(updatedPlayers);
+	setContent();
 };
 
 export default Booking;

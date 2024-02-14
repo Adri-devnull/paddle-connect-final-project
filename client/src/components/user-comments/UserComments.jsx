@@ -15,6 +15,7 @@ const UserComments = () => {
 			<h2>Los comentarios de este jugador son: </h2>
 			{messages.map(msg => (
 				<div key={msg._id}>
+					<h2>{msg.senderId}</h2>
 					<h2>{msg.message}</h2>
 					<h2>{msg.average}</h2>
 				</div>

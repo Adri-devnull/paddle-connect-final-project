@@ -25,7 +25,14 @@ const Main = () => {
 				<PlayersForGame playersWaitingForGame={playersWaitingForGame} />
 				{userData && !userData.booked && (
 					<button
-						onClick={() => setContent(<Booking setContent={setContent} />)}
+						onClick={() =>
+							setContent(
+								<Booking
+									setContent={setContent}
+									setPlayersWaitingForGame={setPlayersWaitingForGame}
+								/>
+							)
+						}
 					>
 						Apuntarme
 					</button>

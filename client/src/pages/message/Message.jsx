@@ -4,8 +4,8 @@ import { AuthContext } from '../../contexts/AuthContext';
 import { postData } from '../../utils/api/common.api';
 
 const Message = ({ setContent, data }) => {
-	const [infoMessage, setInfoMessage] = useState({});
 	const { userData } = useContext(AuthContext);
+	const [infoMessage, setInfoMessage] = useState({ senderId: userData.id });
 	const userId = data._id;
 	return (
 		<div>
@@ -18,12 +18,7 @@ const Message = ({ setContent, data }) => {
 						cols='20'
 						rows='4'
 						onChange={event =>
-							getInputValues(
-								event.target,
-								infoMessage,
-								setInfoMessage,
-								userData
-							)
+							getInputValues(event.target, infoMessage, setInfoMessage)
 						}
 					></textarea>
 				</div>
@@ -33,12 +28,7 @@ const Message = ({ setContent, data }) => {
 						name='average'
 						id='average'
 						onChange={event =>
-							getInputValues(
-								event.target,
-								infoMessage,
-								setInfoMessage,
-								userData
-							)
+							getInputValues(event.target, infoMessage, setInfoMessage)
 						}
 					>
 						<option value='0'>0</option>
@@ -63,9 +53,9 @@ const Message = ({ setContent, data }) => {
 };
 
 // FUNCION PARA OBTENER LOS VALORES DEL FORMULARIO
-const getInputValues = (input, infoMessage, setInfoMessage, userData) => {
+const getInputValues = (input, infoMessage, setInfoMessage) => {
 	const { name, value } = input;
-	const newMessage = { ...infoMessage, [name]: value, senderId: userData.id };
+	const newMessage = { ...infoMessage, [name]: value };
 	setInfoMessage(newMessage);
 };
 
