@@ -1,34 +1,29 @@
-import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { useContext, useState } from 'react';
+import { TABS } from '../../constants/tabs';
 import { AuthContext } from '../../contexts/AuthContext';
+import Profile from '../../pages/profile/Profile';
+import UserComments from '../user-comments/UserComments';
 import { StyledMenu } from './styles';
 
 const Menu = ({ isChecked }) => {
 	const { userData } = useContext(AuthContext);
+	const [tab, setTab] = useState(0);
 	return (
 		<StyledMenu $isChecked={isChecked}>
 			{userData && (
 				<div>
-					<span>{userData.name}</span>
-					<span>{userData.username}</span>
+					<span>Usuario/a: {userData.name}</span>
 				</div>
 			)}
-			<nav>
-				<ul>
-					<li>
-						<Link>Mi perfil</Link>
-					</li>
-					<li>
-						<Link to='/comments'>Comentarios</Link>
-					</li>
-					<li>
-						<Link>Invitaciones</Link>
-					</li>
-					<li>
-						<Link>Ultimos partidos</Link>
-					</li>
-				</ul>
-			</nav>
+			<div>
+				{TABS.map((tab, index) => (
+					<button key={index} onClick={() => setTab(index)}>
+						{tab.name}
+					</button>
+				))}
+			</div>
+			{tab === 1 && <UserComments />}
+			{tab === 0 && <Profile />}
 		</StyledMenu>
 	);
 };

@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { URLS } from '../../constants/urls';
 import { AuthContext } from '../../contexts/AuthContext';
 import { getData } from '../../utils/api/common.api';
@@ -6,6 +7,8 @@ import { getData } from '../../utils/api/common.api';
 const UserComments = () => {
 	const [messages, setMessages] = useState([]);
 	const { userData } = useContext(AuthContext);
+	const navigate = useNavigate();
+	console.log('me renderizo comments');
 	useEffect(() => {
 		getAllMessages(userData, setMessages);
 	}, []);
@@ -15,11 +18,12 @@ const UserComments = () => {
 			<h2>Los comentarios de este jugador son: </h2>
 			{messages.map(msg => (
 				<div key={msg._id}>
-					<h2>{msg.senderId}</h2>
+					<h2>{msg.userSender.name}</h2>
 					<h2>{msg.message}</h2>
 					<h2>{msg.average}</h2>
 				</div>
 			))}
+			<button onClick={() => navigate('/')}>Volver</button>
 		</div>
 	);
 };
