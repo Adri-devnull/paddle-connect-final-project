@@ -15,7 +15,7 @@ messageController.getAllMessages = async (req, res) => {
 
 // Crear un nuevo mensaje
 messageController.createMessage = async (req, res) => {
-  const { message, average } = req.body;
+  const { message, average, senderId } = req.body;
   const { id } = req.params;
   if (!message) return res.status(400).send({ error: "Bad request." + err });
 
@@ -23,7 +23,8 @@ messageController.createMessage = async (req, res) => {
     const newMessage = new MessageModel({
       id,
       message,
-      average
+      average,
+      senderId
     });
 
     await newMessage.save();

@@ -2,9 +2,11 @@ const { mongoose } = require("mongoose");
 
 const MessageScheme = mongoose.Schema(
   {
-    sender: {
-      type: Number,
-      trim: true
+    id: {
+      type: String
+    },
+    senderId: {
+      type: String
     },
     average: {
       type: Number
@@ -14,7 +16,8 @@ const MessageScheme = mongoose.Schema(
       trim: true
     },
     read: {
-      type: Boolean
+      type: Boolean,
+      default: false
     }
   },
   {

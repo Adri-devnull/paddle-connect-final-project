@@ -7,21 +7,26 @@ const Menu = ({ isChecked }) => {
 	const { userData } = useContext(AuthContext);
 	return (
 		<StyledMenu $isChecked={isChecked}>
-			<div>
-				<div>
-					<img src='/assets/images/user.svg' alt='' />
-				</div>
+			{userData && (
 				<div>
 					<span>{userData.name}</span>
 					<span>{userData.username}</span>
 				</div>
-			</div>
+			)}
 			<nav>
 				<ul>
-					<Link>Mi perfil</Link>
-					<Link to='/comments'>Comentarios</Link>
-					<Link>Invitaciones</Link>
-					<Link>Ultimos partidos</Link>
+					<li>
+						<Link>Mi perfil</Link>
+					</li>
+					<li>
+						<Link to='/comments'>Comentarios</Link>
+					</li>
+					<li>
+						<Link>Invitaciones</Link>
+					</li>
+					<li>
+						<Link>Ultimos partidos</Link>
+					</li>
 				</ul>
 			</nav>
 		</StyledMenu>

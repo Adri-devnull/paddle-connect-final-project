@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext';
 import Message from '../../pages/message/Message';
 import Modal from '../modal/Modal';
 
 const PlayerInfo = () => {
 	const location = useLocation();
 	const navigate = useNavigate();
+	const { userData } = useContext(AuthContext);
 	const data = location.state.player;
 	const [content, setContent] = useState();
 	return (
@@ -25,11 +27,15 @@ const PlayerInfo = () => {
 				</div>
 				<div>
 					<button onClick={() => navigate('/')}>Volver</button>
-					<button
-						onClick={() => setContent(<Message setContent={setContent} />)}
-					>
-						Poner comentario al jugador
-					</button>
+					{userData.id !== data._id && (
+						<button
+							onClick={() =>
+								setContent(<Message setContent={setContent} data={data} />)
+							}
+						>
+							Poner comentario al jugador
+						</button>
+					)}
 				</div>
 			</div>
 			<Modal withButtonClose={false}>{content}</Modal>

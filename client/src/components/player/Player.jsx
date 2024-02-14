@@ -20,6 +20,7 @@ const Player = ({ id, scheduleStart, scheduleEnd, location }) => {
 			</div>
 			<div>
 				<StyledInfoContainer>
+					<span>{player._id}</span>
 					<span>{player.username}</span>
 					<span>{location}</span>
 				</StyledInfoContainer>
@@ -33,7 +34,7 @@ const Player = ({ id, scheduleStart, scheduleEnd, location }) => {
 					<span>{scheduleEnd}</span>
 				</div>
 			</div>
-			{userData && (
+			{userData?.id !== player._id && (
 				<div>
 					<button
 						onClick={() => navigate('/playerInfo', { state: { player } })}
