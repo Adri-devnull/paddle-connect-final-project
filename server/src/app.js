@@ -7,6 +7,7 @@ const authRoutes = require("./routes/auth.routes");
 const bookingRoutes = require("./routes/booking.routes");
 const messageRoutes = require("./routes/message.routes");
 const cookieParser = require("cookie-parser");
+const gameRoutes = require("./routes/game.routes");
 
 require("dotenv").config();
 
@@ -29,6 +30,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/booking", bookingRoutes);
 app.use("/api/messages", messageRoutes);
+app.use("/api/games", gameRoutes);
 
 // Uso de rutas
 const startServer = async () => {
