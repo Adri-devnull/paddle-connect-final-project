@@ -5,6 +5,9 @@ const bookingController = require("../controllers/booking.controller");
 // Obtener todas las reservas
 bookingRoutes.get("/", bookingController.getAllBookings);
 
+// Obtener reserva por Id
+bookingRoutes.get("/:id", bookingController.getBookingById);
+
 // Crear una nueva reserva
 bookingRoutes.post("/:id", bookingController.createBooking);
 

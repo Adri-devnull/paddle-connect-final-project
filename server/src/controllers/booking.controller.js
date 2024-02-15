@@ -14,6 +14,18 @@ bookingController.getAllBookings = async (req, res) => {
   }
 };
 
+// Obtener una reserva por id
+bookingController.getBookingById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const booking = await BookingModel.find({ id });
+    if (!booking) return res.status(409).send({ error: "User not Exists" });
+    return res.status(200).send(booking);
+  } catch (err) {
+    return res.status(500).send({ error: "Error reading database." + err });
+  }
+};
+
 // Crear una nueva reserva de partida
 bookingController.createBooking = async (req, res) => {
   const { scheduleStart, scheduleEnd, location, message } = req.body;

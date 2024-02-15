@@ -1,7 +1,17 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { URLS } from '../../constants/urls';
+import { AuthContext } from '../../contexts/AuthContext';
+import { getDataById } from '../../utils/api/common.api';
 
 const EditBooking = () => {
 	const [turn, setTurn] = useState(0);
+	const { userData } = useContext(AuthContext);
+	const [bookingInfo, setBookingInfo] = useState({});
+
+	useEffect(() => {
+		getBookingOfUser(userData, setBookingInfo);
+	}, []);
+
 	return (
 		<div>
 			<form>
@@ -24,7 +34,11 @@ const EditBooking = () => {
 						/>
 					</div>
 					<label htmlFor='schedule'>Horario</label>
-					<select name='scheduleStart' id='schedule'>
+					<select
+						name='scheduleStart'
+						id='schedule'
+						defaultValue={bookingInfo.scheduleStart}
+					>
 						<option>Selecciona horario que tienes disponible </option>
 						{turn === 0 && (
 							<>
@@ -83,19 +97,37 @@ const EditBooking = () => {
 				</div>
 				<div>
 					<label htmlFor='location'>Localizacion</label>
-					<input type='text' id='location' name='location' />
+					<input
+						type='text'
+						id='location'
+						name='location'
+						defaultValue={bookingInfo.location}
+					/>
 				</div>
 				<div>
 					<label htmlFor='message'>Message</label>
-					<input type='text' id='message' name='message' />
+					<textarea
+						id='message'
+						name='message'
+						cols='20'
+						rows='4'
+						defaultValue={bookingInfo.message}
+					/>
 				</div>
 				<div>
-					<button>Apuntarme</button>
+					<button>Guardar cambios</button>
 					<button>Cancelar</button>
 				</div>
 			</form>
 		</div>
 	);
+};
+
+// FUNCION PARA OBTENER LA RESERVA DEL USUARIO PARA PODER MODIFICARLA
+const getBookingOfUser = async (userData, setBookingInfo) => {
+	const userBookings = await getDataById(`${URLS.API_BOOKING}/${userData.id}`);
+	const userBooking = userBookings ? userBookings[0] : userBookings;
+	setBookingInfo(userBooking);
 };
 
 export default EditBooking;
