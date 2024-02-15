@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { URLS } from '../../constants/urls';
 import { AuthContext } from '../../contexts/AuthContext';
+import Booking from '../../pages/booking/Booking';
 import GamesInvitations from '../../pages/games-invitations/GamesInvitations';
 import { getDataById } from '../../utils/api/common.api';
 import Modal from '../modal/Modal';
@@ -56,6 +57,15 @@ const Player = ({ id, scheduleStart, scheduleEnd, location }) => {
 						</button>
 					</div>
 				)}
+				{userData?.id === player._id && (
+					<div>
+						<button
+							onClick={() => setContent(<Booking setContent={setContent} />)}
+						>
+							Editar mi reserva
+						</button>
+					</div>
+				)}
 			</StyledPlayerContainer>
 			<Modal withButtonClose={false}>{content}</Modal>
 		</>
@@ -67,5 +77,7 @@ const getDataOfPlayer = async (id, setPlayer) => {
 	const dataPlayers = await getDataById(`${URLS.API_USERS}/${id}`);
 	setPlayer(dataPlayers);
 };
+
+// FUNCION PARA EDITAR MI RESERVA
 
 export default Player;

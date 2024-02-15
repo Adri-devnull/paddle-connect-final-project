@@ -1,10 +1,10 @@
 const { v4 } = require("uuid");
 const GameModel = require("../models/game.model");
 
-const Gamecontroller = {};
+const gameController = {};
 
 // Obtener todas las partidas
-Gamecontroller.getAllGames = async (req, res) => {
+gameController.getAllGames = async (req, res) => {
   try {
     const allGames = await GameModel.find();
     return res.status(200).send(allGames);
@@ -13,17 +13,30 @@ Gamecontroller.getAllGames = async (req, res) => {
   }
 };
 
-// Crear una nueva invitacion de partida
-Gamecontroller.createGame = async (req, res) => {
-  const { id } = req.params;
+// Obtener usuario por id
+gameController.getGameInvitationById = async (req, res) => {
+  const { invitedUserId } = req.params;
+  try {
+    const gameInvitation = await GameModel.find({ invitedUserId });
+    if (!gameInvitation)
+      return res.status(409).send({ error: "User not Exists" });
+    return res.status(200).send(gameInvitation);
+  } catch (err) {
+    return res.status(500).send({ error: "Error reading database." + err });
+  }
+};
 
-  const { invitedUserId, location, schedule, message } = req.body;
+// Crear una nueva invitacion de partida
+gameController.createGame = async (req, res) => {
+  const { senderUserId, invitedUserId } = req.params;
+
+  const { location, schedule, message } = req.body;
   if (!invitedUserId || !location || !schedule)
     return res.status(400).send({ error: "Bad request." + err });
 
   try {
     const newGame = new GameModel({
-      senderId: id,
+      senderUserId,
       invitedUserId,
       location,
       schedule,
@@ -57,4 +70,4 @@ Gamecontroller.createGame = async (req, res) => {
 //   }
 // };
 
-module.exports = Gamecontroller;
+module.exports = gameController;

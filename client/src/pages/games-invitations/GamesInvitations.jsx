@@ -13,7 +13,11 @@ const GamesInvitations = ({ setContent, player }) => {
 	return (
 		<div>
 			<PlayerInfoInvited player={player} />
-			<form>
+			<form
+				onSubmit={event =>
+					createInvitationToGame(event, infoInvitation, userData, invitedUserId)
+				}
+			>
 				<div>
 					<label htmlFor='location'>Localizacion</label>
 					<input
@@ -21,12 +25,7 @@ const GamesInvitations = ({ setContent, player }) => {
 						name='location'
 						id='location'
 						onChange={event =>
-							getInputValues(
-								event.target,
-								infoInvitation,
-								setInfoInvitation,
-								invitedUserId
-							)
+							getInputValues(event.target, infoInvitation, setInfoInvitation)
 						}
 					/>
 				</div>
@@ -37,12 +36,7 @@ const GamesInvitations = ({ setContent, player }) => {
 						name='schedule'
 						id='schedule'
 						onChange={event =>
-							getInputValues(
-								event.target,
-								infoInvitation,
-								setInfoInvitation,
-								invitedUserId
-							)
+							getInputValues(event.target, infoInvitation, setInfoInvitation)
 						}
 					/>
 				</div>
@@ -54,12 +48,7 @@ const GamesInvitations = ({ setContent, player }) => {
 						cols='20'
 						rows='4'
 						onChange={event =>
-							getInputValues(
-								event.target,
-								infoInvitation,
-								setInfoInvitation,
-								invitedUserId
-							)
+							getInputValues(event.target, infoInvitation, setInfoInvitation)
 						}
 					></textarea>
 				</div>
@@ -80,25 +69,28 @@ const GamesInvitations = ({ setContent, player }) => {
 
 // FUNCION PARA OBTENER LOS VALORES DE LOS DATOS DEL FORMULARIO DE INVITACION
 
-const getInputValues = (
-	input,
-	infoInvitation,
-	setInfoInvitation,
-	invitedUserId
-) => {
+const getInputValues = (input, infoInvitation, setInfoInvitation) => {
 	const { name, value } = input;
 	const updatedInfoInvitation = {
 		...infoInvitation,
-		[name]: value,
-		invitedUserId
+		[name]: value
 	};
 	setInfoInvitation(updatedInfoInvitation);
 };
 
 // FUNCION PARA CREAR LA INVITACION DE UN USUARIO A LA PARTIDA
 
-const createInvitationToGame = async (infoInvitation, userData) => {
-	await postData(`${URLS.API_GAMES}/${userData.id}`, infoInvitation);
+const createInvitationToGame = async (
+	event,
+	infoInvitation,
+	userData,
+	invitedUserId
+) => {
+	event.preventDefault();
+	await postData(
+		`${URLS.API_GAMES}/${userData.id}/${invitedUserId}`,
+		infoInvitation
+	);
 };
 
 export default GamesInvitations;

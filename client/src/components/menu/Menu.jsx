@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { TABS } from '../../constants/tabs';
 import { AuthContext } from '../../contexts/AuthContext';
 import Profile from '../../pages/profile/Profile';
+import Invitations from '../invitations/Invitations';
 import UserComments from '../user-comments/UserComments';
 import { StyledMenu } from './styles';
 
@@ -22,6 +23,7 @@ const Menu = ({ isChecked }) => {
 					</button>
 				))}
 			</div>
+			{tab === 2 && <Invitations />}
 			{tab === 1 && <UserComments />}
 			{tab === 0 && <Profile />}
 		</StyledMenu>
