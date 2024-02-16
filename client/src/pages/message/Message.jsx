@@ -63,7 +63,6 @@ const getInputValues = (input, infoMessage, setInfoMessage) => {
 const postMessage = async (userId, infoMessage, setContent) => {
 	await postData(`${URLS.API_MESSAGES}/${userId}`, infoMessage);
 	setContent();
-	console.log('message sended');
 };
 
 export default Message;

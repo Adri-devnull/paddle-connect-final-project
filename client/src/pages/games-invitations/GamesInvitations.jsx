@@ -8,7 +8,6 @@ const GamesInvitations = ({ setContent, player }) => {
 	const invitedUserId = player._id;
 	const [infoInvitation, setInfoInvitation] = useState({});
 	const { userData } = useContext(AuthContext);
-	console.log(infoInvitation);
 
 	return (
 		<div>

@@ -5,7 +5,10 @@ import Filters from '../filters/Filters';
 import Player from '../player/Player';
 import { StyledPlayersForGameContainer } from './styles';
 
-const PlayersForGame = ({ playersWaitingForGame }) => {
+const PlayersForGame = ({
+	playersWaitingForGame,
+	setPlayersWaitingForGame
+}) => {
 	const [position, setPosition] = useState(0);
 	const [level, setLevel] = useState(0);
 	const [location, setLocation] = useState('');
@@ -28,6 +31,8 @@ const PlayersForGame = ({ playersWaitingForGame }) => {
 							scheduleStart={player.scheduleStart}
 							scheduleEnd={player.scheduleEnd}
 							location={player.location}
+							playersWaitingForGame={playersWaitingForGame}
+							setPlayersWaitingForGame={setPlayersWaitingForGame}
 						/>
 					))}
 				</StyledPlayersForGameContainer>

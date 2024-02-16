@@ -8,7 +8,14 @@ import { getDataById } from '../../utils/api/common.api';
 import Modal from '../modal/Modal';
 import { StyledInfoContainer, StyledPlayerContainer } from './styles';
 
-const Player = ({ id, scheduleStart, scheduleEnd, location }) => {
+const Player = ({
+	id,
+	scheduleStart,
+	scheduleEnd,
+	location,
+	playersWaitingForGame,
+	setPlayersWaitingForGame
+}) => {
 	const [player, setPlayer] = useState([]);
 	const { userData } = useContext(AuthContext);
 	const [content, setContent] = useState();
@@ -61,7 +68,13 @@ const Player = ({ id, scheduleStart, scheduleEnd, location }) => {
 					<div>
 						<button
 							onClick={() =>
-								setContent(<EditBooking setContent={setContent} />)
+								setContent(
+									<EditBooking
+										setContent={setContent}
+										playersWaitingForGame={playersWaitingForGame}
+										setPlayersWaitingForGame={setPlayersWaitingForGame}
+									/>
+								)
 							}
 						>
 							Editar mi reserva

@@ -8,7 +8,6 @@ const UserComments = () => {
 	const [messages, setMessages] = useState([]);
 	const { userData } = useContext(AuthContext);
 	const navigate = useNavigate();
-	console.log('me renderizo comments');
 	useEffect(() => {
 		getAllMessages(userData, setMessages);
 	}, []);

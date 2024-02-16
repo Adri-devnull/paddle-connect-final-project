@@ -20,7 +20,7 @@ bookingController.getBookingById = async (req, res) => {
   try {
     const booking = await BookingModel.find({ id });
     if (!booking) return res.status(409).send({ error: "User not Exists" });
-    return res.status(200).send(booking);
+    return res.status(200).send(booking[0]);
   } catch (err) {
     return res.status(500).send({ error: "Error reading database." + err });
   }

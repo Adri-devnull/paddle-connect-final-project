@@ -22,7 +22,10 @@ const Main = () => {
 					¡No te pierdas ninguna partida! Encuentra tu compañero de pádel con un
 					solo click
 				</h1>
-				<PlayersForGame playersWaitingForGame={playersWaitingForGame} />
+				<PlayersForGame
+					playersWaitingForGame={playersWaitingForGame}
+					setPlayersWaitingForGame={setPlayersWaitingForGame}
+				/>
 				{userData && !userData.booked && (
 					<button
 						onClick={() =>

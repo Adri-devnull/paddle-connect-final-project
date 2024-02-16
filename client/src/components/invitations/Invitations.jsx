@@ -6,7 +6,6 @@ import { getDataById } from '../../utils/api/common.api';
 const Invitations = () => {
 	const { userData } = useContext(AuthContext);
 	const [invitations, setInvitations] = useState([]);
-	console.log(invitations);
 
 	useEffect(() => {
 		getAllInvitations(userData, setInvitations);
