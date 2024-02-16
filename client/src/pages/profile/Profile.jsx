@@ -1,8 +1,10 @@
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 
 const Profile = () => {
 	const { userData } = useContext(AuthContext);
+	const navigate = useNavigate();
 	return (
 		<div>
 			{userData && (
@@ -22,6 +24,7 @@ const Profile = () => {
 						<button>Editar perfil</button>
 						<button>Eliminar mi cuenta</button>
 					</div>
+					<button onClick={() => navigate('/')}>Volver</button>
 				</>
 			)}
 			{!userData && <p>No hay datos de usuario disponibles.</p>}

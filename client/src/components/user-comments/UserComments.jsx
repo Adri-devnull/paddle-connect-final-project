@@ -14,15 +14,17 @@ const UserComments = () => {
 
 	return (
 		<div>
-			<h2>Los comentarios de este jugador son: </h2>
-			{messages.map(msg => (
-				<div key={msg._id}>
-					<h2>{msg.userSender.name}</h2>
-					<h2>{msg.message}</h2>
-					<h2>{msg.average}</h2>
-				</div>
-			))}
-			<button onClick={() => navigate('/')}>Volver</button>
+			<div>
+				<h2>Los comentarios de este jugador son: </h2>
+				{messages.map(msg => (
+					<div key={msg._id}>
+						<h2>{msg.userSender.name}</h2>
+						<h2>{msg.message}</h2>
+						<h2>{msg.average}</h2>
+					</div>
+				))}
+				<button onClick={() => navigate('/')}>Volver</button>
+			</div>
 		</div>
 	);
 };
