@@ -14,7 +14,13 @@ const GamesInvitations = ({ setContent, player }) => {
 			<PlayerInfoInvited player={player} />
 			<form
 				onSubmit={event =>
-					createInvitationToGame(event, infoInvitation, userData, invitedUserId)
+					createInvitationToGame(
+						event,
+						infoInvitation,
+						userData,
+						invitedUserId,
+						setContent
+					)
 				}
 			>
 				<div>
@@ -52,11 +58,7 @@ const GamesInvitations = ({ setContent, player }) => {
 					></textarea>
 				</div>
 				<div>
-					<button
-						onClick={() => createInvitationToGame(infoInvitation, userData)}
-					>
-						Invitar
-					</button>
+					<button>Invitar</button>
 					<button type='button' onClick={() => setContent()}>
 						Cancelar
 					</button>
@@ -83,13 +85,15 @@ const createInvitationToGame = async (
 	event,
 	infoInvitation,
 	userData,
-	invitedUserId
+	invitedUserId,
+	setContent
 ) => {
 	event.preventDefault();
 	await postData(
 		`${URLS.API_GAMES}/${userData.id}/${invitedUserId}`,
 		infoInvitation
 	);
+	setContent();
 };
 
 export default GamesInvitations;

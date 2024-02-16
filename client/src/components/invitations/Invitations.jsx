@@ -6,13 +6,14 @@ import { getDataById } from '../../utils/api/common.api';
 const Invitations = () => {
 	const { userData } = useContext(AuthContext);
 	const [invitations, setInvitations] = useState([]);
+	const [numberOfInvitations, setNumberOfInvitations] = useState(0);
 
 	useEffect(() => {
-		getAllInvitations(userData, setInvitations);
+		getAllInvitations(userData, setInvitations, setNumberOfInvitations);
 	}, []);
 	return (
 		<div>
-			<h2>Invitaciones a partidos</h2>
+			<h2>Invitaciones a partidos ({numberOfInvitations})</h2>
 			<h2>
 				{invitations.map((inv, index) => (
 					<div key={index}>
@@ -28,10 +29,15 @@ const Invitations = () => {
 
 // FUNCION PARA OBTENER TODAS LAS INVITACIONES A PARTIDAS
 
-const getAllInvitations = async (userData, setInvitations) => {
+const getAllInvitations = async (
+	userData,
+	setInvitations,
+	setNumberOfInvitations
+) => {
 	const updatedInvitations = await getDataById(
 		`${URLS.API_GAMES}/${userData.id}`
 	);
+	setNumberOfInvitations(updatedInvitations.length);
 	setInvitations(updatedInvitations);
 };
 
