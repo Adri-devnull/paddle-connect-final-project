@@ -2,7 +2,10 @@ const { mongoose } = require("mongoose");
 
 const GameScheme = mongoose.Schema(
   {
-    senderId: {
+    senderUserId: {
+      type: String
+    },
+    senderUserName: {
       type: String
     },
     invitedUserId: {

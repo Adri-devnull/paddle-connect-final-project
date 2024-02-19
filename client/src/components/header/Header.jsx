@@ -24,7 +24,7 @@ const Header = () => {
 			)}
 
 			<StyledHeader>
-				<Menu isChecked={isChecked} />
+				<Menu isChecked={isChecked} setIsChecked={setIsChecked} />
 				<div>
 					<h1>Paddle Connect</h1>
 				</div>

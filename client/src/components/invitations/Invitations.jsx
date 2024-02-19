@@ -9,6 +9,7 @@ const Invitations = () => {
 	const [invitations, setInvitations] = useState([]);
 	const [numberOfInvitations, setNumberOfInvitations] = useState(0);
 	const navigate = useNavigate();
+	console.log(invitations);
 
 	useEffect(() => {
 		getAllInvitations(userData, setInvitations, setNumberOfInvitations);
@@ -16,11 +17,12 @@ const Invitations = () => {
 	return (
 		<div>
 			<h2>Invitaciones a partidos ({numberOfInvitations})</h2>
-			{invitations.map((inv, index) => (
-				<div key={index}>
-					<h2>Localizacion: {inv.location}</h2>
-					<h2>Hora partido: {inv.schedule}</h2>
-					<h2>Mensaje: {inv.message}</h2>
+			{invitations.map(invitation => (
+				<div key={invitation._id}>
+					<h2>Invitacion de: {invitation.senderUserName}</h2>
+					<h2>Localizacion: {invitation.location}</h2>
+					<h2>Hora partido: {invitation.schedule}</h2>
+					<h2>Mensaje: {invitation.message}</h2>
 					<div>
 						<button>Aceptar invitacion</button>
 						<button>Cancelar invitacion</button>

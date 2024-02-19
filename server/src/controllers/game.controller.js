@@ -1,5 +1,6 @@
 const { v4 } = require("uuid");
 const GameModel = require("../models/game.model");
+const UserModel = require("../models/user.model");
 
 const gameController = {};
 
@@ -35,8 +36,10 @@ gameController.createGame = async (req, res) => {
     return res.status(400).send({ error: "Bad request." + err });
 
   try {
+    const senderUser = await UserModel.findById(senderUserId);
     const newGame = new GameModel({
       senderUserId,
+      senderUserName: senderUser.name,
       invitedUserId,
       location,
       schedule,
