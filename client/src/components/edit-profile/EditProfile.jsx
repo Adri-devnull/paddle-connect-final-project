@@ -1,23 +1,53 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { URLS } from '../../constants/urls';
 import { AuthContext } from '../../contexts/AuthContext';
+import { patchData } from '../../utils/api/common.api';
 
 const EditProfile = ({ setContent }) => {
 	const { userData } = useContext(AuthContext);
+	const [userInfo, setUserInfo] = useState();
+
+	useEffect(() => setUserInfo(userData), []);
 
 	return (
 		<div>
-			<form onSubmit={event => event.preventDefault()}>
+			<form
+				onSubmit={event =>
+					updateProfile(event, userData, userInfo, setContent, setUserInfo)
+				}
+			>
 				<div>
 					<label htmlFor='name'>Name</label>
-					<input type='text' name='name' defaultValue={userData.name} />
+					<input
+						type='text'
+						name='name'
+						defaultValue={userData.name}
+						onInput={event =>
+							getInputValues(event.target, userInfo, setUserInfo)
+						}
+					/>
 				</div>
 				<div>
 					<label htmlFor='username'>Username</label>
-					<input type='text' name='username' defaultValue={userData.username} />
+					<input
+						type='text'
+						name='username'
+						defaultValue={userData.username}
+						onInput={event =>
+							getInputValues(event.target, userInfo, setUserInfo)
+						}
+					/>
 				</div>
 				<div>
 					<label htmlFor='email'>Email</label>
-					<input type='text' name='email' defaultValue={userData.email} />
+					<input
+						type='text'
+						name='email'
+						defaultValue={userData.email}
+						onInput={event =>
+							getInputValues(event.target, userInfo, setUserInfo)
+						}
+					/>
 				</div>
 				<div>
 					<h4>Gender</h4>
@@ -28,6 +58,9 @@ const EditProfile = ({ setContent }) => {
 						id='women'
 						value='women'
 						defaultChecked={userData.gender === 'women'}
+						onChange={event =>
+							getInputValues(event.target, userInfo, setUserInfo)
+						}
 					/>
 					<label htmlFor='man'>Man</label>
 					<input
@@ -36,6 +69,9 @@ const EditProfile = ({ setContent }) => {
 						id='man'
 						value='man'
 						defaultChecked={userData.gender === 'man'}
+						onChange={event =>
+							getInputValues(event.target, userInfo, setUserInfo)
+						}
 					/>
 				</div>
 				<div>
@@ -47,6 +83,9 @@ const EditProfile = ({ setContent }) => {
 						id='right'
 						value='right'
 						defaultChecked={userData.position === 'right'}
+						onChange={event =>
+							getInputValues(event.target, userInfo, setUserInfo)
+						}
 					/>
 					<label htmlFor='left'>Left</label>
 					<input
@@ -55,6 +94,9 @@ const EditProfile = ({ setContent }) => {
 						id='left'
 						value='left'
 						defaultChecked={userData.position === 'left'}
+						onChange={event =>
+							getInputValues(event.target, userInfo, setUserInfo)
+						}
 					/>
 					<label htmlFor='both'>Both</label>
 					<input
@@ -63,10 +105,19 @@ const EditProfile = ({ setContent }) => {
 						id='both'
 						value='both'
 						defaultChecked={userData.position === 'both'}
+						onChange={event =>
+							getInputValues(event.target, userInfo, setUserInfo)
+						}
 					/>
 				</div>
 				<div>
-					<select name='level' id='level'>
+					<select
+						name='level'
+						id='level'
+						onChange={event =>
+							getInputValues(event.target, userInfo, setUserInfo)
+						}
+					>
 						<option>{userData.level}</option>
 						<option value='2.5'>2.5</option>
 						<option value='3'>3</option>
@@ -87,6 +138,28 @@ const EditProfile = ({ setContent }) => {
 	);
 };
 
-const getInputValues = () => {};
+// FUNCION PARA GUARDAR LA INFORMACION DEL USUSARIO MODIFICADO EN LA BD
+const updateProfile = async (
+	event,
+	userData,
+	userInfo,
+	setContent,
+	setUserInfo
+) => {
+	event.preventDefault();
+	const updatedUser = await patchData(
+		`${URLS.API_USERS}/${userData.id}`,
+		userInfo
+	);
+	setUserInfo(updatedUser);
+	setContent();
+};
+
+// OBTENER INFORMACION DEL NUEVO PERFIL EDITADO
+const getInputValues = (input, userInfo, setUserInfo) => {
+	const { name, value } = input;
+	const updatedUserInfo = { ...userInfo, [name]: value };
+	setUserInfo(updatedUserInfo);
+};
 
 export default EditProfile;

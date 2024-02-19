@@ -7,7 +7,7 @@ const Modal = ({ closeModal, children, withButtonClose = true }) => {
 	return createPortal(
 		<StyledModal>
 			{children}
-			{withButtonClose && <button onClick={closeModal}>Close</button>}
+			{withButtonClose && <button onInput={closeModal}>Close</button>}
 		</StyledModal>,
 		document.getElementById('modal')
 	);
