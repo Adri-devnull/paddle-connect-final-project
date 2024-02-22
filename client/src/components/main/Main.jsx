@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { URLS } from '../../constants/urls';
 import { AuthContext } from '../../contexts/AuthContext';
+import { ListPlayersContext } from '../../contexts/ListPlayersContext';
 import Booking from '../../pages/booking/Booking';
 import { deleteData, getData } from '../../utils/api/common.api';
 import Modal from '../modal/Modal';
@@ -8,7 +9,7 @@ import PlayersForGame from '../players-for-game/PlayersForGame';
 
 const Main = () => {
 	const { userData, setUserData } = useContext(AuthContext);
-	const [playersWaitingForGame, setPlayersWaitingForGame] = useState([]);
+	const { setPlayersWaitingForGame } = useContext(ListPlayersContext);
 	const [content, setContent] = useState();
 
 	useEffect(() => {
@@ -22,10 +23,7 @@ const Main = () => {
 					¡No te pierdas ninguna partida! Encuentra tu compañero de pádel con un
 					solo click
 				</h1>
-				<PlayersForGame
-					playersWaitingForGame={playersWaitingForGame}
-					setPlayersWaitingForGame={setPlayersWaitingForGame}
-				/>
+				<PlayersForGame />
 				{userData && !userData.booked && (
 					<button
 						onClick={() =>
@@ -64,7 +62,7 @@ const Main = () => {
 const deleteBooked = async (id, setPlayersWaitingForGame, setUserData) => {
 	const response = await deleteData(`${URLS.API_BOOKING}/${id}`);
 	setPlayersWaitingForGame(response.bookings);
-	setUserData(response.userData);
+	setUserData({ ...response.userData, booked: false });
 };
 
 // FUNCION PARA LLAMAR A LA BASE DE DATOS Y OBTENER LA LISTA DE JUGADORES DISPONIBLES PARA JUGAR

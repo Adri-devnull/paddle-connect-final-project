@@ -1,17 +1,17 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { LEVELS } from '../../constants/level';
 import { POSITIONS } from '../../constants/positions';
+import { ListPlayersContext } from '../../contexts/ListPlayersContext';
 import Filters from '../filters/Filters';
 import Player from '../player/Player';
 import { StyledPlayersForGameContainer } from './styles';
 
-const PlayersForGame = ({
-	playersWaitingForGame,
-	setPlayersWaitingForGame
-}) => {
+const PlayersForGame = () => {
 	const [position, setPosition] = useState(0);
 	const [level, setLevel] = useState(0);
 	const [location, setLocation] = useState('');
+	const { playersWaitingForGame, setPlayersWaitingForGame } =
+		useContext(ListPlayersContext);
 	let filteredPlayers = filteredByPosition(playersWaitingForGame, position);
 	filteredPlayers = filteredByLevel(filteredPlayers, level);
 	filteredPlayers = filterbByLocation(filteredPlayers, location);

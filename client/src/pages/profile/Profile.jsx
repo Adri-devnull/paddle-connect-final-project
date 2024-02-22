@@ -3,9 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import EditProfile from '../../components/edit-profile/EditProfile';
 import Modal from '../../components/modal/Modal';
 import { AuthContext } from '../../contexts/AuthContext';
+// import { ListPlayersContext } from '../../contexts/ListPlayersContext';
 
 const Profile = () => {
 	const { userData } = useContext(AuthContext);
+	// const { setPlayersWaitingForGame } = useContext(ListPlayersContext);
 	const [content, setContent] = useState();
 	const navigate = useNavigate();
 	return (
@@ -43,5 +45,7 @@ const Profile = () => {
 		</>
 	);
 };
+
+// FUNCION PARA ELIMINAR CUENTA DEL USUARIO
 
 export default Profile;

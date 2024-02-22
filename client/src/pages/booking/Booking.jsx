@@ -6,7 +6,7 @@ import { postData } from '../../utils/api/common.api';
 const Booking = ({ setContent, setPlayersWaitingForGame }) => {
 	const [turn, setTurn] = useState(0);
 	const [bookingInfo, setBookingInfo] = useState({});
-	const { userData } = useContext(AuthContext);
+	const { userData, setUserData } = useContext(AuthContext);
 	const id = userData.id;
 	return (
 		<div>
@@ -17,7 +17,9 @@ const Booking = ({ setContent, setPlayersWaitingForGame }) => {
 						id,
 						bookingInfo,
 						setContent,
-						setPlayersWaitingForGame
+						setPlayersWaitingForGame,
+						userData,
+						setUserData
 					)
 				}
 			>
@@ -155,7 +157,9 @@ const signUpAvaiblePlayerList = async (
 	id,
 	bookingInfo,
 	setContent,
-	setPlayersWaitingForGame
+	setPlayersWaitingForGame,
+	userData,
+	setUserData
 ) => {
 	event.preventDefault();
 	const updatedPlayers = await postData(
@@ -163,6 +167,7 @@ const signUpAvaiblePlayerList = async (
 		bookingInfo
 	);
 	setPlayersWaitingForGame(updatedPlayers);
+	setUserData({ ...userData, booked: true });
 	setContent();
 };
 
