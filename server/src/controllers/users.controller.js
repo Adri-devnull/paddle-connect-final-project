@@ -91,7 +91,7 @@ controller.deleteUser = async (req, res) => {
 
     if (!user) return res.status(409).send({ error: "User not Exists" });
 
-    await UserModel.deleteOne({ _id: id });
+    await UserModel.deleteOne({ id: id });
 
     const allUsers = await UserModel.find();
     return res.status(200).send(allUsers);
