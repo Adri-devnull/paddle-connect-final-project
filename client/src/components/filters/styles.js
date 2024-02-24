@@ -26,14 +26,28 @@ const StyledInput = styled.input`
 	border: 1px solid #ccc;
 	font-size: 1rem;
 	width: 150px;
+	background: rgb(180, 180, 180);
+	background: linear-gradient(
+		0deg,
+		rgba(180, 180, 180, 1) 0%,
+		rgba(200, 200, 200, 1) 100%
+	);
 `;
 
 const StyledSelect = styled.select`
 	padding: 5px;
 	border-radius: 5px;
 	border: 1px solid #ccc;
-	font-size: 1rem;
+	font-size: 0.9rem;
 	width: 150px;
+	background: rgb(180, 180, 180);
+	background: linear-gradient(
+		0deg,
+		rgba(180, 180, 180, 1) 0%,
+		rgba(200, 200, 200, 1) 100%
+	);
+	font-weight: 600;
+	font-style: italic;
 `;
 
 const StyledLabels = styled.label`

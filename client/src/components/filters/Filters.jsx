@@ -29,7 +29,7 @@ const Filters = ({ setPosition, setLevel, setLocation }) => {
 					id='position'
 					onChange={event => setPosition(Number(event.target.value))}
 				>
-					<option value={POSITIONS.BOTH}>Todos</option>
+					<option value={POSITIONS.BOTH}>Todas</option>
 					<option value={POSITIONS.RIGHT}>Derecha</option>
 					<option value={POSITIONS.LEFT}>Izquierda</option>
 				</StyledSelect>

@@ -6,7 +6,13 @@ import EditBooking from '../../pages/edit-booking/EditBooking';
 import GamesInvitations from '../../pages/games-invitations/GamesInvitations';
 import { getDataById } from '../../utils/api/common.api';
 import Modal from '../modal/Modal';
-import { StyledInfoContainer, StyledPlayerContainer } from './styles';
+import {
+	StyledInfoContainer,
+	StyledPlayerContainer,
+	StyledSpans,
+	StyledViewInviteContainer,
+	SytledImg
+} from './styles';
 
 const Player = ({
 	id,
@@ -28,12 +34,11 @@ const Player = ({
 		<>
 			<StyledPlayerContainer>
 				<div>
-					<img src='/assets/images/user.svg' alt='' />
+					<SytledImg src='/assets/images/user.svg' alt='' />
 				</div>
 				<div>
 					<StyledInfoContainer>
-						<span>{player._id}</span>
-						<span>{player.username}</span>
+						<StyledSpans>{player.username}</StyledSpans>
 						<span>{location}</span>
 					</StyledInfoContainer>
 					<StyledInfoContainer>
@@ -42,12 +47,12 @@ const Player = ({
 					</StyledInfoContainer>
 					<div>
 						<span>{scheduleStart}</span>
-						<span> / </span>
+						<span> a </span>
 						<span>{scheduleEnd}</span>
 					</div>
 				</div>
 				{userData?.id !== player._id && (
-					<div>
+					<StyledViewInviteContainer>
 						<button
 							onClick={() => navigate('/playerInfo', { state: { player } })}
 						>
@@ -62,7 +67,7 @@ const Player = ({
 						>
 							Invitar
 						</button>
-					</div>
+					</StyledViewInviteContainer>
 				)}
 				{userData?.id === player._id && (
 					<div>
