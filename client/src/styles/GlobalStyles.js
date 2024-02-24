@@ -12,13 +12,18 @@ const GlobalStyles = createGlobalStyle`
   }
   body{
     margin: 0;
-    font-family: sans-serif;
-    background-color: grey;
+    font-family: "Montserrat", sans-serif;
+    background-color: #1b1b1b;
   }
   a{
     text-decoration: none;
     color: inherit;
   }
+
+  h1, h2, h3 {
+    margin: 0;
+  }
+  
   ul{
     list-style: none;
     margin-top: 0;

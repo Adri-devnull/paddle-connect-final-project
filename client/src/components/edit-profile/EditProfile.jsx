@@ -3,7 +3,7 @@ import { URLS } from '../../constants/urls';
 import { AuthContext } from '../../contexts/AuthContext';
 import { patchData } from '../../utils/api/common.api';
 
-const EditProfile = ({ setContent }) => {
+const EditProfile = ({ setContent, setUserData }) => {
 	const { userData } = useContext(AuthContext);
 	const [userInfo, setUserInfo] = useState();
 
@@ -13,7 +13,14 @@ const EditProfile = ({ setContent }) => {
 		<div>
 			<form
 				onSubmit={event =>
-					updateProfile(event, userData, userInfo, setContent, setUserInfo)
+					updateProfile(
+						event,
+						userData,
+						userInfo,
+						setContent,
+						setUserInfo,
+						setUserData
+					)
 				}
 			>
 				<div>
@@ -144,7 +151,8 @@ const updateProfile = async (
 	userData,
 	userInfo,
 	setContent,
-	setUserInfo
+	setUserInfo,
+	setUserData
 ) => {
 	event.preventDefault();
 	const updatedUser = await patchData(
@@ -152,6 +160,7 @@ const updateProfile = async (
 		userInfo
 	);
 	setUserInfo(updatedUser);
+	setUserData(updatedUser);
 	setContent();
 };
 

@@ -6,6 +6,14 @@ import Booking from '../../pages/booking/Booking';
 import { deleteData, getData } from '../../utils/api/common.api';
 import Modal from '../modal/Modal';
 import PlayersForGame from '../players-for-game/PlayersForGame';
+import {
+	StyledButton,
+	StyledLogin,
+	StyledLoginSpan,
+	StyledMain,
+	StyledSpanTitle,
+	StyledTitle
+} from './styles';
 
 const Main = () => {
 	const { userData, setUserData } = useContext(AuthContext);
@@ -17,15 +25,15 @@ const Main = () => {
 	}, []);
 
 	return (
-		<main>
+		<StyledMain>
 			<div>
-				<h1>
+				<StyledTitle>
 					¡No te pierdas ninguna partida! Encuentra tu compañero de pádel con un
-					solo click
-				</h1>
+					solo <StyledSpanTitle>click</StyledSpanTitle>
+				</StyledTitle>
 				<PlayersForGame />
 				{userData && !userData.booked && (
-					<button
+					<StyledButton
 						onClick={() =>
 							setContent(
 								<Booking
@@ -36,25 +44,26 @@ const Main = () => {
 						}
 					>
 						Apuntarme
-					</button>
+					</StyledButton>
 				)}
 				{userData && userData.booked && (
-					<button
+					<StyledButton
 						onClick={() =>
 							deleteBooked(userData.id, setPlayersWaitingForGame, setUserData)
 						}
 					>
 						Eliminarme de la lista
-					</button>
+					</StyledButton>
 				)}
 				{!userData && (
-					<p>
-						<span>Inicia sesion</span> para apuntarte o para buscar un jugador.
-					</p>
+					<StyledLogin>
+						<StyledLoginSpan>Inicia sesion</StyledLoginSpan> para apuntarte o
+						para buscar un jugador.
+					</StyledLogin>
 				)}
 				<Modal withButtonClose={false}>{content}</Modal>
 			</div>
-		</main>
+		</StyledMain>
 	);
 };
 

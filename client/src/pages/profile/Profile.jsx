@@ -6,7 +6,7 @@ import { AuthContext } from '../../contexts/AuthContext';
 // import { ListPlayersContext } from '../../contexts/ListPlayersContext';
 
 const Profile = () => {
-	const { userData } = useContext(AuthContext);
+	const { userData, setUserData } = useContext(AuthContext);
 	// const { setPlayersWaitingForGame } = useContext(ListPlayersContext);
 	const [content, setContent] = useState();
 	const navigate = useNavigate();
@@ -29,7 +29,12 @@ const Profile = () => {
 						<div>
 							<button
 								onClick={() =>
-									setContent(<EditProfile setContent={setContent} />)
+									setContent(
+										<EditProfile
+											setContent={setContent}
+											setUserData={setUserData}
+										/>
+									)
 								}
 							>
 								Editar perfil
@@ -45,7 +50,5 @@ const Profile = () => {
 		</>
 	);
 };
-
-// FUNCION PARA ELIMINAR CUENTA DEL USUARIO
 
 export default Profile;

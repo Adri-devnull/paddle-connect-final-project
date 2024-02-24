@@ -6,7 +6,13 @@ import Register from '../../pages/register/Register';
 import { logoutUser } from '../../utils/api/auth.api';
 import Menu from '../menu/Menu';
 import Modal from '../modal/Modal';
-import { StyledHeader, StyledImage } from './styles';
+import {
+	StyledButton,
+	StyledContainerButtons,
+	StyledHeader,
+	StyledImage,
+	StyledSpanTitle
+} from './styles';
 
 const Header = () => {
 	const [content, setContent] = useState();
@@ -26,29 +32,31 @@ const Header = () => {
 			<StyledHeader>
 				<Menu isChecked={isChecked} setIsChecked={setIsChecked} />
 				<div>
-					<h1>Paddle Connect</h1>
+					<h1>
+						<StyledSpanTitle>Paddle</StyledSpanTitle> Connect
+					</h1>
 				</div>
 				<div>
 					{!userData && (
-						<div>
-							<button
+						<StyledContainerButtons>
+							<StyledButton
 								onClick={() => setContent(<Login setContent={setContent} />)}
 							>
 								Login
-							</button>
-							<button
+							</StyledButton>
+							<StyledButton
 								onClick={() => setContent(<Register setContent={setContent} />)}
 							>
 								Register
-							</button>
-						</div>
+							</StyledButton>
+						</StyledContainerButtons>
 					)}
 					{userData && (
 						<div>
 							<span>Hola {userData.name}</span>
-							<button onClick={() => logoutUser(setUserData, navigate)}>
+							<StyledButton onClick={() => logoutUser(setUserData, navigate)}>
 								Logout
-							</button>
+							</StyledButton>
 						</div>
 					)}
 				</div>
