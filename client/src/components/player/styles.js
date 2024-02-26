@@ -25,8 +25,10 @@ const StyledSpans = styled.span`
 `;
 
 const SytledImg = styled.img`
-	width: 40px;
-	height: 40px;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	border: 2px inset #ffd700;
 `;
 
 const StyledViewInviteContainer = styled.div`
@@ -34,7 +36,18 @@ const StyledViewInviteContainer = styled.div`
 	flex-direction: column;
 	gap: 8px;
 `;
+
+const StyledButton = styled.button`
+	background-color: #e6ed94;
+	border-radius: 5px 2px 5px 2px;
+	padding: 6px 10px;
+	border: 1px solid #333;
+	font-weight: bold;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+`;
+
 export {
+	StyledButton,
 	StyledInfoContainer,
 	StyledPlayerContainer,
 	StyledSpans,

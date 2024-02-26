@@ -7,6 +7,7 @@ import GamesInvitations from '../../pages/games-invitations/GamesInvitations';
 import { getDataById } from '../../utils/api/common.api';
 import Modal from '../modal/Modal';
 import {
+	StyledButton,
 	StyledInfoContainer,
 	StyledPlayerContainer,
 	StyledSpans,
@@ -34,7 +35,7 @@ const Player = ({
 		<>
 			<StyledPlayerContainer>
 				<div>
-					<SytledImg src='/assets/images/user.svg' alt='' />
+					<SytledImg src={player.img} alt='Imagen del avatar del jugador' />
 				</div>
 				<div>
 					<StyledInfoContainer>
@@ -53,12 +54,12 @@ const Player = ({
 				</div>
 				{userData?.id !== player._id && (
 					<StyledViewInviteContainer>
-						<button
+						<StyledButton
 							onClick={() => navigate('/playerInfo', { state: { player } })}
 						>
 							Ver perfil
-						</button>
-						<button
+						</StyledButton>
+						<StyledButton
 							onClick={() =>
 								setContent(
 									<GamesInvitations setContent={setContent} player={player} />
@@ -66,12 +67,12 @@ const Player = ({
 							}
 						>
 							Invitar
-						</button>
+						</StyledButton>
 					</StyledViewInviteContainer>
 				)}
 				{userData?.id === player._id && (
 					<div>
-						<button
+						<StyledButton
 							onClick={() =>
 								setContent(
 									<EditBooking
@@ -82,8 +83,8 @@ const Player = ({
 								)
 							}
 						>
-							Editar mi reserva
-						</button>
+							Editar reserva
+						</StyledButton>
 					</div>
 				)}
 			</StyledPlayerContainer>

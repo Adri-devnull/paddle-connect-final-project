@@ -31,6 +31,7 @@ const PlayersForGame = () => {
 							scheduleStart={player.scheduleStart}
 							scheduleEnd={player.scheduleEnd}
 							location={player.location}
+							level={player.level}
 							playersWaitingForGame={playersWaitingForGame}
 							setPlayersWaitingForGame={setPlayersWaitingForGame}
 						/>
@@ -55,7 +56,7 @@ const filteredByPosition = (playersWaitingForGame, position) => {
 const filteredByLevel = (filteredPlayers, level) => {
 	if (level === LEVELS.ALL) return filteredPlayers;
 	return filteredPlayers.filter(player => {
-		const playerLevel = LEVELS[player.level];
+		const playerLevel = Number(player.level);
 		return playerLevel === level;
 	});
 };

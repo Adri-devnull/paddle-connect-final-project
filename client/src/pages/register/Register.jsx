@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { URLS } from '../../constants/urls';
 import { postData } from '../../utils/api/common.api';
+import { generateRandomNumber } from '../../utils/randomNumber';
 
 const Register = ({ setContent }) => {
 	// ESTADO QUE GUARDA LA INFORMACION DEL NUEVO USUARIO
@@ -60,16 +61,26 @@ const Register = ({ setContent }) => {
 							getInputValues(event.target, infoUser, setInfoUser)
 						}
 					/>
-					<label htmlFor='man'>Man</label>
+					<label htmlFor='men'>Men</label>
 					<input
 						type='radio'
 						name='gender'
-						id='man'
-						value='man'
+						id='men'
+						value='men'
 						onChange={event =>
 							getInputValues(event.target, infoUser, setInfoUser)
 						}
 					/>
+				</div>
+				<div>
+					<div>
+						<img src={infoUser.img} alt='' />
+					</div>
+					<button
+						onClick={() => getUserImage(infoUser, setInfoUser, infoUser.gender)}
+					>
+						Selecciona tu avatar
+					</button>
 				</div>
 				<div>
 					<h4>Position</h4>
@@ -142,6 +153,13 @@ const getInputValues = (input, infoUser, setInfoUser) => {
 	const { name, value } = input;
 	const updatedUserInfo = { ...infoUser, [name]: value };
 	setInfoUser(updatedUserInfo);
+};
+
+// OBTENER IMAGEN USUARIO
+const getUserImage = (infoUser, setInfoUser, gender) => {
+	const randomNumber = generateRandomNumber();
+	const url = `https://randomuser.me/api/portraits/med/${gender}/${randomNumber}.jpg`;
+	setInfoUser({ ...infoUser, img: url });
 };
 
 // REGISTRAR NUEVO USUARIO A LA BASE DE DATOS

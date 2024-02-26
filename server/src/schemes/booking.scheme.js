@@ -27,6 +27,9 @@ const BookingScheme = mongoose.Schema(
     },
     position: {
       type: String
+    },
+    level: {
+      type: String
     }
   },
   {
