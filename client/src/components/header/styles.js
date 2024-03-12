@@ -5,7 +5,7 @@ const StyledHeader = styled.header`
 	color: #fff;
 	justify-content: space-between;
 	align-items: center;
-	padding: 10px 25px 10px 50px;
+	padding: 30px 25px 10px 50px;
 	gap: 70px;
 `;
 
@@ -21,12 +21,12 @@ const StyledImage = styled.img`
 `;
 
 const StyledSpanTitle = styled.span`
-	color: #d8e260;
+	color: #cadf70;
 	font-style: italic;
 `;
 
 const StyledButton = styled.button`
-	background-color: #e6ed94;
+	background-color: #cadf70;
 	color: #000;
 	border: 2px solid #d8e260;
 	border-radius: 15px 10px;

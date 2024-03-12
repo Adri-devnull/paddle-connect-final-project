@@ -3,6 +3,7 @@ import { URLS } from '../../constants/urls';
 import { AuthContext } from '../../contexts/AuthContext';
 import { ListPlayersContext } from '../../contexts/ListPlayersContext';
 import Booking from '../../pages/booking/Booking';
+import Login from '../../pages/login/Login';
 import { deleteData, getData } from '../../utils/api/common.api';
 import Modal from '../modal/Modal';
 import PlayersForGame from '../players-for-game/PlayersForGame';
@@ -57,8 +58,12 @@ const Main = () => {
 				)}
 				{!userData && (
 					<StyledLogin>
-						<StyledLoginSpan>Inicia sesion</StyledLoginSpan> para apuntarte o
-						para buscar un jugador.
+						<StyledLoginSpan
+							onClick={() => setContent(<Login setContent={setContent} />)}
+						>
+							Inicia sesion
+						</StyledLoginSpan>
+						para apuntarte o para buscar un jugador.
 					</StyledLogin>
 				)}
 				<Modal withButtonClose={false}>{content}</Modal>

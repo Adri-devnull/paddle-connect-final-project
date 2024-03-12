@@ -51,7 +51,7 @@ const StyledSelect = styled.select`
 `;
 
 const StyledLabels = styled.label`
-	color: #d2d976;
+	color: #cadf70;
 	font-weight: 500;
 	font-size: 1rem;
 `;

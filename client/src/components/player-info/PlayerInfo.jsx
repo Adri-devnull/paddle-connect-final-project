@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import Message from '../../pages/message/Message';
 import Modal from '../modal/Modal';
+import { SytledPlayerInfoContainer } from './playerInfo.styles';
 
 const PlayerInfo = () => {
 	const location = useLocation();
@@ -12,9 +13,9 @@ const PlayerInfo = () => {
 	const [content, setContent] = useState();
 	return (
 		<>
-			<div>
+			<SytledPlayerInfoContainer>
 				<div>
-					<img src='/assets/images/user.svg' alt='' />
+					<img src={data.img} alt='user image' />
 				</div>
 				<div>
 					<p>Id: {data._id}</p>
@@ -37,7 +38,7 @@ const PlayerInfo = () => {
 						</button>
 					)}
 				</div>
-			</div>
+			</SytledPlayerInfoContainer>
 			<Modal withButtonClose={false}>{content}</Modal>
 		</>
 	);

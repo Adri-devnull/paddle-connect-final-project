@@ -1,39 +1,54 @@
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import { loginRequest } from '../../utils/api/auth.api';
+import {
+	StyledButton,
+	StyledButtonsContainer,
+	StyledContainerInputs,
+	StyledInput,
+	StyledLabel,
+	StyledLoginForm,
+	StyledLogo
+} from './login.styles';
 const Login = ({ setContent }) => {
 	const [user, setUser] = useState({});
 	const { setUserData } = useContext(AuthContext);
 	return (
 		<div>
-			<form
+			<StyledLoginForm
 				onSubmit={event => handleSubmit(event, user, setUserData, setContent)}
 			>
 				<div>
-					<label htmlFor='email'>Email</label>
-					<input
+					<StyledLogo
+						src='/assets/images/logo-padel.png'
+						alt='logo-padel image'
+					/>
+				</div>
+				<StyledContainerInputs>
+					<StyledLabel htmlFor='email'>Email</StyledLabel>
+					<StyledInput
 						type='text'
 						id='email'
 						name='email'
 						onChange={event => getInputValues(event.target, user, setUser)}
 					/>
-				</div>
-				<div>
-					<label htmlFor='password'>Password</label>
-					<input
+				</StyledContainerInputs>
+				<StyledContainerInputs>
+					<StyledLabel htmlFor='password'>Password</StyledLabel>
+					<StyledInput
 						type='text'
 						id='password'
 						name='password'
 						onChange={event => getInputValues(event.target, user, setUser)}
 					/>
-				</div>
-				<div>
-					<button>Login</button>
-					<button type='button' onClick={() => setContent()}>
+				</StyledContainerInputs>
+				<StyledButtonsContainer>
+					<StyledButton>Login</StyledButton>
+					<StyledButton type='button' onClick={() => setContent()}>
 						Cancel
-					</button>
-				</div>
-			</form>
+					</StyledButton>
+				</StyledButtonsContainer>
+			</StyledLoginForm>
 		</div>
 	);
 };

@@ -12,13 +12,13 @@ const StyledTitle = styled.h1`
 `;
 
 const StyledSpanTitle = styled.span`
-	color: #e6ed94;
+	color: #cadf70;
 	font-style: italic;
 	font-weight: 600;
 `;
 
 const StyledButton = styled.button`
-	background-color: #e6ed94;
+	background-color: #cadf70;
 	color: #000;
 	border: 2px solid #d8e260;
 	border-radius: 15px 10px;
@@ -32,9 +32,10 @@ const StyledLogin = styled.p`
 `;
 
 const StyledLoginSpan = styled.span`
-	color: #e6ed94;
+	color: #cadf70;
 	font-style: italic;
 	font-weight: bold;
+	margin-right: 5px;
 `;
 
 export {

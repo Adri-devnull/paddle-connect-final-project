@@ -27,6 +27,7 @@ const Player = ({
 	const { userData } = useContext(AuthContext);
 	const [content, setContent] = useState();
 	const navigate = useNavigate();
+	console.log(player);
 	useEffect(() => {
 		getDataOfPlayer(id, setPlayer);
 	}, []);
@@ -54,20 +55,24 @@ const Player = ({
 				</div>
 				{userData?.id !== player._id && (
 					<StyledViewInviteContainer>
-						<StyledButton
-							onClick={() => navigate('/playerInfo', { state: { player } })}
-						>
-							Ver perfil
-						</StyledButton>
-						<StyledButton
-							onClick={() =>
-								setContent(
-									<GamesInvitations setContent={setContent} player={player} />
-								)
-							}
-						>
-							Invitar
-						</StyledButton>
+						{userData && (
+							<StyledButton
+								onClick={() => navigate('/playerInfo', { state: { player } })}
+							>
+								Ver perfil
+							</StyledButton>
+						)}
+						{userData && (
+							<StyledButton
+								onClick={() =>
+									setContent(
+										<GamesInvitations setContent={setContent} player={player} />
+									)
+								}
+							>
+								Invitar
+							</StyledButton>
+						)}
 					</StyledViewInviteContainer>
 				)}
 				{userData?.id === player._id && (

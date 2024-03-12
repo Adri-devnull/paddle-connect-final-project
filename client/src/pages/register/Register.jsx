@@ -2,121 +2,162 @@ import { useState } from 'react';
 import { URLS } from '../../constants/urls';
 import { postData } from '../../utils/api/common.api';
 import { generateRandomNumber } from '../../utils/randomNumber';
+import {
+	StyledButton,
+	StyledButtonAvatar,
+	StyledButtonsContainer,
+	StyledContainerInputs,
+	StyledContainerRadioInput,
+	StyledImageAvatar,
+	StyledImageUserContainer,
+	StyledInput,
+	StyledLogo,
+	StyledPositionsContainer,
+	StyledRegisterForm,
+	StyledSelect,
+	StyledSelectContainer
+} from './register.styles';
 
 const Register = ({ setContent }) => {
 	// ESTADO QUE GUARDA LA INFORMACION DEL NUEVO USUARIO
 	const [infoUser, setInfoUser] = useState({});
+	console.log(infoUser);
 	return (
 		<div>
-			<form onSubmit={handleSubmit}>
+			<StyledRegisterForm onSubmit={handleSubmit}>
 				<div>
+					<StyledLogo
+						src='/assets/images/logo-padel.png'
+						alt='logo-padel image'
+					/>
+				</div>
+				<StyledContainerInputs>
 					<label htmlFor='name'>Name</label>
-					<input
+					<StyledInput
 						type='text'
 						name='name'
 						onChange={event =>
 							getInputValues(event.target, infoUser, setInfoUser)
 						}
 					/>
-				</div>
-				<div>
+				</StyledContainerInputs>
+				<StyledContainerInputs>
 					<label htmlFor='username'>Username</label>
-					<input
+					<StyledInput
 						type='text'
 						name='username'
 						onChange={event =>
 							getInputValues(event.target, infoUser, setInfoUser)
 						}
 					/>
-				</div>
-				<div>
+				</StyledContainerInputs>
+				<StyledContainerInputs>
 					<label htmlFor='email'>Email</label>
-					<input
+					<StyledInput
 						type='text'
 						name='email'
 						onChange={event =>
 							getInputValues(event.target, infoUser, setInfoUser)
 						}
 					/>
-				</div>
-				<div>
+				</StyledContainerInputs>
+				<StyledContainerInputs>
 					<label htmlFor='password'>Password</label>
-					<input
+					<StyledInput
 						type='password'
 						name='password'
 						onChange={event =>
 							getInputValues(event.target, infoUser, setInfoUser)
 						}
 					/>
-				</div>
-				<div>
+				</StyledContainerInputs>
+				<StyledContainerRadioInput>
 					<h4>Gender</h4>
-					<label htmlFor='women'>Women</label>
-					<input
-						type='radio'
-						name='gender'
-						id='women'
-						value='women'
-						onChange={event =>
-							getInputValues(event.target, infoUser, setInfoUser)
-						}
-					/>
-					<label htmlFor='men'>Men</label>
-					<input
-						type='radio'
-						name='gender'
-						id='men'
-						value='men'
-						onChange={event =>
-							getInputValues(event.target, infoUser, setInfoUser)
-						}
-					/>
-				</div>
-				<div>
 					<div>
-						<img src={infoUser.img} alt='' />
+						<label htmlFor='women'>Women</label>
+						<input
+							type='radio'
+							name='gender'
+							id='women'
+							value='women'
+							onChange={event =>
+								getInputValues(event.target, infoUser, setInfoUser)
+							}
+						/>
+						<label htmlFor='men'>Men</label>
+						<input
+							type='radio'
+							name='gender'
+							id='men'
+							value='men'
+							onChange={event =>
+								getInputValues(event.target, infoUser, setInfoUser)
+							}
+						/>
 					</div>
-					<button
-						onClick={() => getUserImage(infoUser, setInfoUser, infoUser.gender)}
-					>
-						Selecciona tu avatar
-					</button>
-				</div>
-				<div>
+				</StyledContainerRadioInput>
+				<StyledImageUserContainer>
+					{infoUser.gender && (
+						<StyledButtonAvatar
+							onClick={() =>
+								getUserImage(infoUser, setInfoUser, infoUser.gender)
+							}
+						>
+							Selecciona tu avatar
+						</StyledButtonAvatar>
+					)}
+					{infoUser.gender && infoUser.img && (
+						<div>
+							<StyledImageAvatar
+								src={infoUser.img}
+								alt='image of user profile'
+							/>
+						</div>
+					)}
+				</StyledImageUserContainer>
+				<StyledContainerRadioInput>
 					<h4>Position</h4>
-					<label htmlFor='right'>Right</label>
-					<input
-						type='radio'
-						name='position'
-						id='right'
-						value='right'
-						onChange={event =>
-							getInputValues(event.target, infoUser, setInfoUser)
-						}
-					/>
-					<label htmlFor='left'>Left</label>
-					<input
-						type='radio'
-						name='position'
-						id='left'
-						value='left'
-						onChange={event =>
-							getInputValues(event.target, infoUser, setInfoUser)
-						}
-					/>
-					<label htmlFor='both'>Both</label>
-					<input
-						type='radio'
-						name='position'
-						id='both'
-						value='both'
-						onChange={event =>
-							getInputValues(event.target, infoUser, setInfoUser)
-						}
-					/>
-				</div>
-				<div>
-					<select
+					<StyledPositionsContainer>
+						<div>
+							<label htmlFor='right'>Right</label>
+							<input
+								type='radio'
+								name='position'
+								id='right'
+								value='right'
+								onChange={event =>
+									getInputValues(event.target, infoUser, setInfoUser)
+								}
+							/>
+						</div>
+						<div>
+							<label htmlFor='left'>Left</label>
+							<input
+								type='radio'
+								name='position'
+								id='left'
+								value='left'
+								onChange={event =>
+									getInputValues(event.target, infoUser, setInfoUser)
+								}
+							/>
+						</div>
+						<div>
+							<label htmlFor='both'>Both</label>
+							<input
+								type='radio'
+								name='position'
+								id='both'
+								value='both'
+								onChange={event =>
+									getInputValues(event.target, infoUser, setInfoUser)
+								}
+							/>
+						</div>
+					</StyledPositionsContainer>
+				</StyledContainerRadioInput>
+				<StyledSelectContainer>
+					<StyledSelect
 						name='level'
 						id='level'
 						onChange={event =>
@@ -130,15 +171,17 @@ const Register = ({ setContent }) => {
 						<option value='4'>4</option>
 						<option value='4.5'>4.5</option>
 						<option value='5'>5</option>
-					</select>
-				</div>
-				<button onClick={() => registerNewUser(infoUser, setContent)}>
-					Registrarme
-				</button>
-				<button type='button' onClick={() => setContent()}>
-					Cancel
-				</button>
-			</form>
+					</StyledSelect>
+				</StyledSelectContainer>
+				<StyledButtonsContainer>
+					<StyledButton onClick={() => registerNewUser(infoUser, setContent)}>
+						Registrarme
+					</StyledButton>
+					<StyledButton type='button' onClick={() => setContent()}>
+						Cancel
+					</StyledButton>
+				</StyledButtonsContainer>
+			</StyledRegisterForm>
 		</div>
 	);
 };

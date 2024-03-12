@@ -12,7 +12,7 @@ const StyledPlayerContainer = styled.div`
 	padding: 15px;
 	justify-content: space-around;
 	border-radius: 20px;
-	border: 3px solid #b59e45;
+	border: 2px solid #a3b451;
 `;
 
 const StyledInfoContainer = styled.div`
@@ -28,7 +28,7 @@ const SytledImg = styled.img`
 	width: 60px;
 	height: 60px;
 	border-radius: 50%;
-	border: 2px inset #ffd700;
+	border: 2px inset #cadf70;
 `;
 
 const StyledViewInviteContainer = styled.div`
@@ -38,11 +38,10 @@ const StyledViewInviteContainer = styled.div`
 `;
 
 const StyledButton = styled.button`
-	background-color: #e6ed94;
+	background-color: #cadf70;
 	border-radius: 5px 2px 5px 2px;
 	padding: 6px 10px;
 	border: 1px solid #333;
-	font-weight: bold;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 `;
 
