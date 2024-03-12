@@ -3,7 +3,14 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import Message from '../../pages/message/Message';
 import Modal from '../modal/Modal';
-import { SytledPlayerInfoContainer } from './playerInfo.styles';
+import {
+	StyledButton,
+	StyledButtonsContainer,
+	StyledImage,
+	StyledInfo,
+	StyledSpan,
+	SytledPlayerInfoContainer
+} from './playerInfo.styles';
 
 const PlayerInfo = () => {
 	const location = useLocation();
@@ -15,29 +22,40 @@ const PlayerInfo = () => {
 		<>
 			<SytledPlayerInfoContainer>
 				<div>
-					<img src={data.img} alt='user image' />
+					<StyledImage src={data.img} alt='user image' />
 				</div>
 				<div>
-					<p>Id: {data._id}</p>
-					<p>Nombre: {data.name}</p>
-					<p>Usuario: {data.username}</p>
-					<p>Email: {data.email}</p>
-					<p>Genero: {data.gender}</p>
-					<p>Nivel: {data.level}</p>
-					<p>Posicion: {data.position}</p>
+					<StyledInfo>
+						<StyledSpan>Nombre:</StyledSpan> {data.name}
+					</StyledInfo>
+					<StyledInfo>
+						<StyledSpan>Usuario:</StyledSpan> {data.username}
+					</StyledInfo>
+					<StyledInfo>
+						<StyledSpan>Email:</StyledSpan> {data.email}
+					</StyledInfo>
+					<StyledInfo>
+						<StyledSpan>Genero:</StyledSpan> {data.gender}
+					</StyledInfo>
+					<StyledInfo>
+						<StyledSpan>Nivel:</StyledSpan> {data.level}
+					</StyledInfo>
+					<StyledInfo>
+						<StyledSpan>Posicion:</StyledSpan> {data.position}
+					</StyledInfo>
 				</div>
-				<div>
-					<button onClick={() => navigate('/')}>Volver</button>
+				<StyledButtonsContainer>
+					<StyledButton onClick={() => navigate('/')}>Volver</StyledButton>
 					{userData.id !== data._id && (
-						<button
+						<StyledButton
 							onClick={() =>
 								setContent(<Message setContent={setContent} data={data} />)
 							}
 						>
-							Poner comentario al jugador
-						</button>
+							Poner comentario
+						</StyledButton>
 					)}
-				</div>
+				</StyledButtonsContainer>
 			</SytledPlayerInfoContainer>
 			<Modal withButtonClose={false}>{content}</Modal>
 		</>

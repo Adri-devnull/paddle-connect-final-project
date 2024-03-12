@@ -3,6 +3,7 @@ import PlayerInfoInvited from '../../components/player-info-invited/PlayerInfoIn
 import { URLS } from '../../constants/urls';
 import { AuthContext } from '../../contexts/AuthContext';
 import { postData } from '../../utils/api/common.api';
+import { StyledForm } from './gamesInv.styles';
 
 const GamesInvitations = ({ setContent, player }) => {
 	const invitedUserId = player._id;
@@ -12,7 +13,7 @@ const GamesInvitations = ({ setContent, player }) => {
 	return (
 		<div>
 			<PlayerInfoInvited player={player} />
-			<form
+			<StyledForm
 				onSubmit={event =>
 					createInvitationToGame(
 						event,
@@ -63,7 +64,7 @@ const GamesInvitations = ({ setContent, player }) => {
 						Cancelar
 					</button>
 				</div>
-			</form>
+			</StyledForm>
 		</div>
 	);
 };

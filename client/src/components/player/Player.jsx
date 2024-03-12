@@ -8,6 +8,7 @@ import { getDataById } from '../../utils/api/common.api';
 import Modal from '../modal/Modal';
 import {
 	StyledButton,
+	StyledImageContainer,
 	StyledInfoContainer,
 	StyledPlayerContainer,
 	StyledSpans,
@@ -35,9 +36,9 @@ const Player = ({
 	return (
 		<>
 			<StyledPlayerContainer>
-				<div>
+				<StyledImageContainer>
 					<SytledImg src={player.img} alt='Imagen del avatar del jugador' />
-				</div>
+				</StyledImageContainer>
 				<div>
 					<StyledInfoContainer>
 						<StyledSpans>{player.username}</StyledSpans>

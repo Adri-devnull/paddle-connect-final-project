@@ -9,7 +9,7 @@ const StyledPlayerContainer = styled.div`
 		rgba(245, 245, 245, 1) 100%
 	);
 	align-items: center;
-	padding: 15px;
+	padding: 15px 10px;
 	justify-content: space-around;
 	border-radius: 20px;
 	border: 2px solid #a3b451;
@@ -18,6 +18,10 @@ const StyledPlayerContainer = styled.div`
 const StyledInfoContainer = styled.div`
 	display: flex;
 	flex-direction: column;
+`;
+
+const StyledImageContainer = styled.div`
+	margin-right: 10px;
 `;
 
 const StyledSpans = styled.span`
@@ -41,12 +45,17 @@ const StyledButton = styled.button`
 	background-color: #cadf70;
 	border-radius: 5px 2px 5px 2px;
 	padding: 6px 10px;
-	border: 1px solid #333;
+	width: 80px;
+	border: none;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	font-size: 0.75em;
 `;
 
 export {
 	StyledButton,
+	StyledImageContainer,
 	StyledInfoContainer,
 	StyledPlayerContainer,
 	StyledSpans,
