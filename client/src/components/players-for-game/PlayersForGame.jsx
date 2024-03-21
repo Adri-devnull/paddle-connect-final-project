@@ -4,7 +4,7 @@ import { POSITIONS } from '../../constants/positions';
 import { ListPlayersContext } from '../../contexts/ListPlayersContext';
 import Filters from '../filters/Filters';
 import Player from '../player/Player';
-import { StyledPlayersForGameContainer } from './styles';
+import { StyledContainer, StyledPlayersForGameContainer } from './styles';
 
 const PlayersForGame = () => {
 	const [position, setPosition] = useState(0);
@@ -22,7 +22,7 @@ const PlayersForGame = () => {
 				setLevel={setLevel}
 				setLocation={setLocation}
 			/>
-			<div>
+			<StyledContainer>
 				<StyledPlayersForGameContainer>
 					{filteredPlayers.map(player => (
 						<Player
@@ -37,7 +37,7 @@ const PlayersForGame = () => {
 						/>
 					))}
 				</StyledPlayersForGameContainer>
-			</div>
+			</StyledContainer>
 		</>
 	);
 };

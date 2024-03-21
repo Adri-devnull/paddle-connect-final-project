@@ -13,7 +13,7 @@ const GlobalStyles = createGlobalStyle`
   body{
     margin: 0;
     font-family: "Montserrat", sans-serif;
-    background-color: #1b1b1b;
+    background: linear-gradient(rgb(35, 44, 62), rgb(17, 21, 30));
   }
   a{
     text-decoration: none;

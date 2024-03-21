@@ -11,7 +11,9 @@ import {
 	StyledContainerButtons,
 	StyledHeader,
 	StyledImage,
-	StyledSpanTitle
+	StyledSpanHello,
+	StyledSpanTitle,
+	StyledTitle
 } from './styles';
 
 const Header = () => {
@@ -32,9 +34,9 @@ const Header = () => {
 			<StyledHeader>
 				<Menu isChecked={isChecked} setIsChecked={setIsChecked} />
 				<div>
-					<h1>
+					<StyledTitle>
 						<StyledSpanTitle>Paddle</StyledSpanTitle> Connect
-					</h1>
+					</StyledTitle>
 				</div>
 				<div>
 					{!userData && (
@@ -53,7 +55,7 @@ const Header = () => {
 					)}
 					{userData && (
 						<div>
-							<span>Hola {userData.name}</span>
+							<StyledSpanHello>Hola {userData.name}</StyledSpanHello>
 							<StyledButton onClick={() => logoutUser(setUserData, navigate)}>
 								Logout
 							</StyledButton>

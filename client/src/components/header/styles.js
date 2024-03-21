@@ -7,6 +7,7 @@ const StyledHeader = styled.header`
 	align-items: center;
 	padding: 30px 25px 10px 50px;
 	gap: 70px;
+	margin-bottom: 80px;
 `;
 
 const StyledImage = styled.img`
@@ -18,11 +19,27 @@ const StyledImage = styled.img`
 	height: 40px;
 	background-color: #d8e260;
 	border-radius: 10px;
+
+	@media screen and (min-width: 768px) {
+		display: none;
+	}
+`;
+
+const StyledTitle = styled.h1`
+	font-size: 1.8em;
+
+	@media screen and (min-width: 768px) {
+		font-size: 2.8em;
+	}
 `;
 
 const StyledSpanTitle = styled.span`
 	color: #cadf70;
 	font-style: italic;
+`;
+
+const StyledSpanHello = styled.span`
+	margin-right: 15px;
 `;
 
 const StyledButton = styled.button`
@@ -39,6 +56,9 @@ const StyledContainerButtons = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 8px;
+	@media screen and (min-width: 768px) {
+		flex-direction: row;
+	}
 `;
 
 export {
@@ -46,5 +66,7 @@ export {
 	StyledContainerButtons,
 	StyledHeader,
 	StyledImage,
-	StyledSpanTitle
+	StyledSpanHello,
+	StyledSpanTitle,
+	StyledTitle
 };

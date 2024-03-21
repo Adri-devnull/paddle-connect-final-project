@@ -12,7 +12,10 @@ const StyledPlayerContainer = styled.div`
 	padding: 15px 10px;
 	justify-content: space-around;
 	border-radius: 20px;
-	border: 2px solid #a3b451;
+
+	@media screen and (min-width: 768px) {
+		padding: 20px 15px;
+	}
 `;
 
 const StyledInfoContainer = styled.div`
@@ -33,6 +36,11 @@ const SytledImg = styled.img`
 	height: 60px;
 	border-radius: 50%;
 	border: 2px inset #cadf70;
+
+	@media screen and (min-width: 768px) {
+		width: 90px;
+		height: 90px;
+	}
 `;
 
 const StyledViewInviteContainer = styled.div`
@@ -51,6 +59,12 @@ const StyledButton = styled.button`
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 600;
 	font-size: 0.75em;
+
+	@media screen and (min-width: 768px) {
+		width: 110px;
+		padding: 9px 11px;
+		font-size: 0.9em;
+	}
 `;
 
 export {

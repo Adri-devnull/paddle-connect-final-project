@@ -9,12 +9,27 @@ const StyledTitle = styled.h1`
 	font-size: 2em;
 	font-weight: 400;
 	padding-bottom: 50px;
+
+	@media screen and (min-width: 768px) {
+		font-size: 3em;
+		width: 800px;
+		margin: 0 auto;
+		margin-bottom: 60px;
+	}
 `;
 
 const StyledSpanTitle = styled.span`
 	color: #cadf70;
 	font-style: italic;
 	font-weight: 600;
+
+	@media screen and (min-width: 768px) {
+		&:hover {
+			transition: 0.2s;
+			color: yellow;
+			cursor: pointer;
+		}
+	}
 `;
 
 const StyledButton = styled.button`
