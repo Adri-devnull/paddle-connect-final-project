@@ -25,25 +25,42 @@ const StyledSpanTitle = styled.span`
 
 	@media screen and (min-width: 768px) {
 		&:hover {
-			transition: 0.2s;
-			color: yellow;
 			cursor: pointer;
+			filter: drop-shadow(0px 0px 1px #e1ec9f);
 		}
 	}
 `;
 
 const StyledButton = styled.button`
 	background-color: #cadf70;
-	color: #000;
-	border: 2px solid #d8e260;
+	color: #11161e;
+	border: none;
 	border-radius: 15px 10px;
-	padding: 6px 10px;
+	padding: 10px;
 	font-size: 16px;
 	font-weight: bold;
+	transition: transform 0.2s ease-in-out;
+
+	&:hover {
+		transform: translateY(-2px);
+	}
+
+	@media screen and (min-width: 768px) {
+		&:hover {
+			cursor: pointer;
+			background-color: #e1ec9f;
+		}
+	}
 `;
 
 const StyledLogin = styled.p`
 	color: #fff;
+`;
+
+const StyledDeleteContainer = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `;
 
 const StyledLoginSpan = styled.span`
@@ -51,10 +68,18 @@ const StyledLoginSpan = styled.span`
 	font-style: italic;
 	font-weight: bold;
 	margin-right: 5px;
+	@media screen and (min-width: 768px) {
+		&:hover {
+			cursor: pointer;
+			transition: 0.3s;
+			color: yellow;
+		}
+	}
 `;
 
 export {
 	StyledButton,
+	StyledDeleteContainer,
 	StyledLogin,
 	StyledLoginSpan,
 	StyledMain,

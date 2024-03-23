@@ -11,6 +11,8 @@ import {
 	StyledContainerButtons,
 	StyledHeader,
 	StyledImage,
+	StyledImageProfileContainer,
+	StyledProfileImage,
 	StyledSpanHello,
 	StyledSpanTitle,
 	StyledTitle
@@ -54,12 +56,19 @@ const Header = () => {
 						</StyledContainerButtons>
 					)}
 					{userData && (
-						<div>
+						<StyledImageProfileContainer>
+							{userData && (
+								<StyledProfileImage
+									src='/assets/images/profile.svg'
+									alt=''
+									onClick={() => setIsChecked(!isChecked)}
+								/>
+							)}
 							<StyledSpanHello>Hola {userData.name}</StyledSpanHello>
 							<StyledButton onClick={() => logoutUser(setUserData, navigate)}>
 								Logout
 							</StyledButton>
-						</div>
+						</StyledImageProfileContainer>
 					)}
 				</div>
 				<Modal withButtonClose={false}>{content}</Modal>

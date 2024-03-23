@@ -10,6 +10,7 @@ import {
 	StyledButton,
 	StyledImageContainer,
 	StyledInfoContainer,
+	StyledInfoSpan,
 	StyledPlayerContainer,
 	StyledSpans,
 	StyledViewInviteContainer,
@@ -41,17 +42,24 @@ const Player = ({
 				</StyledImageContainer>
 				<div>
 					<StyledInfoContainer>
-						<StyledSpans>{player.username}</StyledSpans>
-						<span>{location}</span>
+						<StyledSpans>{player.username?.toUpperCase()}</StyledSpans>
+						<span>
+							<StyledInfoSpan>Localizacion:</StyledInfoSpan> {location}
+						</span>
 					</StyledInfoContainer>
 					<StyledInfoContainer>
-						<span>Posicion: {player.position}</span>
-						<span>Nivel: {player.level}</span>
+						<span>
+							<StyledInfoSpan>Posicion:</StyledInfoSpan> {player.position}
+						</span>
+						<span>
+							<StyledInfoSpan>Nivel:</StyledInfoSpan> {player.level}
+						</span>
 					</StyledInfoContainer>
 					<div>
-						<span>{scheduleStart}</span>
-						<span> a </span>
-						<span>{scheduleEnd}</span>
+						<span>
+							<StyledInfoSpan> Horario:</StyledInfoSpan>{' '}
+							{`${scheduleStart} a ${scheduleEnd}`}
+						</span>
 					</div>
 				</div>
 				{userData?.id !== player._id && (

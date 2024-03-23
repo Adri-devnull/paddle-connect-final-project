@@ -9,6 +9,7 @@ import Modal from '../modal/Modal';
 import PlayersForGame from '../players-for-game/PlayersForGame';
 import {
 	StyledButton,
+	StyledDeleteContainer,
 	StyledLogin,
 	StyledLoginSpan,
 	StyledMain,
@@ -47,15 +48,17 @@ const Main = () => {
 						Apuntarme
 					</StyledButton>
 				)}
-				{userData && userData.booked && (
-					<StyledButton
-						onClick={() =>
-							deleteBooked(userData.id, setPlayersWaitingForGame, setUserData)
-						}
-					>
-						Eliminarme de la lista
-					</StyledButton>
-				)}
+				<StyledDeleteContainer>
+					{userData && userData.booked && (
+						<StyledButton
+							onClick={() =>
+								deleteBooked(userData.id, setPlayersWaitingForGame, setUserData)
+							}
+						>
+							Eliminarme de la lista
+						</StyledButton>
+					)}
+				</StyledDeleteContainer>
 				{!userData && (
 					<StyledLogin>
 						<StyledLoginSpan
