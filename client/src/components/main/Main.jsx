@@ -9,6 +9,7 @@ import Modal from '../modal/Modal';
 import PlayersForGame from '../players-for-game/PlayersForGame';
 import {
 	StyledButton,
+	StyledContainerSignUp,
 	StyledDeleteContainer,
 	StyledLogin,
 	StyledLoginSpan,
@@ -35,18 +36,20 @@ const Main = () => {
 				</StyledTitle>
 				<PlayersForGame />
 				{userData && !userData.booked && (
-					<StyledButton
-						onClick={() =>
-							setContent(
-								<Booking
-									setContent={setContent}
-									setPlayersWaitingForGame={setPlayersWaitingForGame}
-								/>
-							)
-						}
-					>
-						Apuntarme
-					</StyledButton>
+					<StyledContainerSignUp>
+						<StyledButton
+							onClick={() =>
+								setContent(
+									<Booking
+										setContent={setContent}
+										setPlayersWaitingForGame={setPlayersWaitingForGame}
+									/>
+								)
+							}
+						>
+							Apuntarme
+						</StyledButton>
+					</StyledContainerSignUp>
 				)}
 				<StyledDeleteContainer>
 					{userData && userData.booked && (

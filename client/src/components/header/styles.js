@@ -11,14 +11,13 @@ const StyledHeader = styled.header`
 `;
 
 const StyledImage = styled.img`
-	position: fixed;
-	top: 0;
-	left: 0;
+	position: absolute;
 	z-index: 100;
 	width: 40px;
 	height: 40px;
 	background-color: #d8e260;
 	border-radius: 10px;
+	z-index: ${({ $isChecked }) => ($isChecked ? 0 : 100)};
 
 	@media screen and (min-width: 768px) {
 		display: none;

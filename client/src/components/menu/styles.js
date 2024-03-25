@@ -11,4 +11,8 @@ const StyledMenu = styled.div`
 	transition: transform 0.3s;
 `;
 
-export { StyledMenu };
+const StyledUserName = styled.span`
+	color: #000;
+`;
+
+export { StyledMenu, StyledUserName };

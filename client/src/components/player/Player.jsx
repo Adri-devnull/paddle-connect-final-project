@@ -29,7 +29,7 @@ const Player = ({
 	const { userData } = useContext(AuthContext);
 	const [content, setContent] = useState();
 	const navigate = useNavigate();
-	console.log(player);
+
 	useEffect(() => {
 		getDataOfPlayer(id, setPlayer);
 	}, []);

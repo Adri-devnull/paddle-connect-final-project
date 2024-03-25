@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledRegisterForm = styled.div`
-	width: 350px;
+	width: 400px;
 	height: auto;
 	background-color: #f4f4f4;
 	border-radius: 10px;
@@ -66,7 +66,6 @@ const StyledButtonAvatar = styled.button`
 	font-size: 0.8em;
 	font-weight: 600;
 	outline: none;
-	border: 1px solid #000;
 `;
 
 const StyledImageAvatar = styled.img`

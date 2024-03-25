@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 
 import { useNavigate } from 'react-router-dom';
-import { StyledMenu } from './styles';
+import { StyledMenu, StyledUserName } from './styles';
 
 const Menu = ({ isChecked, setIsChecked }) => {
 	const { userData } = useContext(AuthContext);
@@ -12,10 +12,11 @@ const Menu = ({ isChecked, setIsChecked }) => {
 		<StyledMenu $isChecked={isChecked}>
 			{userData && (
 				<div>
-					<span>Usuario/a: {userData.name}</span>
+					<StyledUserName>Usuario/a: {userData.name}</StyledUserName>
 					<button onClick={() => goToProfile(setIsChecked, navigate)}>
 						Ver mi perfil
 					</button>
+					<button onClick={() => setIsChecked(!isChecked)}>Close</button>
 				</div>
 			)}
 		</StyledMenu>

@@ -30,9 +30,9 @@ const Header = () => {
 					src='/assets/images/menu.svg'
 					alt=''
 					onClick={() => setIsChecked(!isChecked)}
+					$isChecked={isChecked}
 				/>
 			)}
-
 			<StyledHeader>
 				<Menu isChecked={isChecked} setIsChecked={setIsChecked} />
 				<div>

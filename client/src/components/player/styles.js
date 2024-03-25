@@ -9,7 +9,7 @@ const StyledPlayerContainer = styled.div`
 		rgba(39, 48, 63, 1) 100%
 	);
 	align-items: center;
-	padding: 15px 10px;
+	padding: 20px 10px;
 	justify-content: space-around;
 	border-radius: 20px;
 	border: 1px solid rgba(202, 223, 112, 0.2);
@@ -35,6 +35,7 @@ const StyledImageContainer = styled.div`
 
 const StyledSpans = styled.span`
 	font-weight: 700;
+	color: #f0f0f0;
 `;
 
 const StyledInfoSpan = styled.span`

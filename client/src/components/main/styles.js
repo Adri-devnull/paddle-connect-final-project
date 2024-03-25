@@ -55,9 +55,20 @@ const StyledButton = styled.button`
 
 const StyledLogin = styled.p`
 	color: #fff;
+
+	@media screen and (min-width: 768px) {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
 `;
 
 const StyledDeleteContainer = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+`;
+
+const StyledContainerSignUp = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -79,6 +90,7 @@ const StyledLoginSpan = styled.span`
 
 export {
 	StyledButton,
+	StyledContainerSignUp,
 	StyledDeleteContainer,
 	StyledLogin,
 	StyledLoginSpan,
