@@ -60,6 +60,10 @@ const StyledSelect = styled.select`
 
 	font-weight: 600;
 	font-style: italic;
+
+	@media screen and (min-width: 768px) {
+		cursor: pointer;
+	}
 `;
 
 const StyledLabels = styled.label`

@@ -36,6 +36,7 @@ const StyledImageContainer = styled.div`
 const StyledSpans = styled.span`
 	font-weight: 700;
 	color: #f0f0f0;
+	font-size: 0.9em;
 `;
 
 const StyledInfoSpan = styled.span`

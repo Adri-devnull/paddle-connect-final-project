@@ -22,13 +22,6 @@ const StyledSpanTitle = styled.span`
 	color: #cadf70;
 	font-style: italic;
 	font-weight: 600;
-
-	@media screen and (min-width: 768px) {
-		&:hover {
-			cursor: pointer;
-			filter: drop-shadow(0px 0px 1px #e1ec9f);
-		}
-	}
 `;
 
 const StyledButton = styled.button`

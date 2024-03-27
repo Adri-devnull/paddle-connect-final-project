@@ -1,9 +1,16 @@
 import { useContext, useState } from 'react';
 import PlayerInfoInvited from '../../components/player-info-invited/PlayerInfoInvited';
+import { StyledButton } from '../../components/player/styles';
 import { URLS } from '../../constants/urls';
 import { AuthContext } from '../../contexts/AuthContext';
 import { postData } from '../../utils/api/common.api';
-import { StyledForm } from './gamesInv.styles';
+import { StyledInput } from '../register/register.styles';
+import {
+	StyledContainerButtons,
+	StyledContainerInputs,
+	StyledForm,
+	StyledTitle
+} from './gamesInvitation.styles';
 
 const GamesInvitations = ({ setContent, player }) => {
 	const invitedUserId = player._id;
@@ -12,6 +19,7 @@ const GamesInvitations = ({ setContent, player }) => {
 
 	return (
 		<div>
+			<StyledTitle>Jugador a invitar: </StyledTitle>
 			<PlayerInfoInvited player={player} />
 			<StyledForm
 				onSubmit={event =>
@@ -24,9 +32,9 @@ const GamesInvitations = ({ setContent, player }) => {
 					)
 				}
 			>
-				<div>
+				<StyledContainerInputs>
 					<label htmlFor='location'>Localizacion</label>
-					<input
+					<StyledInput
 						type='text'
 						name='location'
 						id='location'
@@ -34,10 +42,10 @@ const GamesInvitations = ({ setContent, player }) => {
 							getInputValues(event.target, infoInvitation, setInfoInvitation)
 						}
 					/>
-				</div>
-				<div>
+				</StyledContainerInputs>
+				<StyledContainerInputs>
 					<label htmlFor='schedule'>Horario</label>
-					<input
+					<StyledInput
 						type='text'
 						name='schedule'
 						id='schedule'
@@ -45,8 +53,8 @@ const GamesInvitations = ({ setContent, player }) => {
 							getInputValues(event.target, infoInvitation, setInfoInvitation)
 						}
 					/>
-				</div>
-				<div>
+				</StyledContainerInputs>
+				<StyledContainerInputs>
 					<label htmlFor='message'>Mensaje</label>
 					<textarea
 						name='message'
@@ -57,13 +65,13 @@ const GamesInvitations = ({ setContent, player }) => {
 							getInputValues(event.target, infoInvitation, setInfoInvitation)
 						}
 					></textarea>
-				</div>
-				<div>
-					<button>Invitar</button>
-					<button type='button' onClick={() => setContent()}>
+				</StyledContainerInputs>
+				<StyledContainerButtons>
+					<StyledButton>Invitar</StyledButton>
+					<StyledButton type='button' onClick={() => setContent()}>
 						Cancelar
-					</button>
-				</div>
+					</StyledButton>
+				</StyledContainerButtons>
 			</StyledForm>
 		</div>
 	);

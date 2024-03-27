@@ -1,15 +1,30 @@
+import {
+	StyledImage,
+	StyledInfoPlayer,
+	StyledPlayerContainer,
+	StyledSpan,
+	StyledSpansContainer,
+	StyledSpansInfo
+} from './playerInfoInvited.styles';
+
 const PlayerInfoInvited = ({ player }) => {
 	return (
-		<div>
+		<StyledPlayerContainer>
 			<div>
-				<img src='/assets/images/user.svg' alt='' />
+				<StyledImage src={player.img} alt='user invited image' />
 			</div>
-			<div>
-				<h2>{player.name}</h2>
-				<h2>Posicion: {player.position}</h2>
-				<h2>Nivel: {player.level}</h2>
-			</div>
-		</div>
+			<StyledSpansInfo>
+				<StyledInfoPlayer>{player.name.toUpperCase()}</StyledInfoPlayer>
+				<StyledSpansContainer>
+					<StyledSpan>Posicion:</StyledSpan>
+					<StyledInfoPlayer>{player.position}</StyledInfoPlayer>
+				</StyledSpansContainer>
+				<StyledSpansContainer>
+					<StyledSpan>Nivel:</StyledSpan>
+					<StyledInfoPlayer>{player.level}</StyledInfoPlayer>
+				</StyledSpansContainer>
+			</StyledSpansInfo>
+		</StyledPlayerContainer>
 	);
 };
 

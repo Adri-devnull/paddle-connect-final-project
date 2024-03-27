@@ -1,7 +1,13 @@
 import { useContext, useState } from 'react';
+import { StyledButton } from '../../components/player/styles';
 import { URLS } from '../../constants/urls';
 import { AuthContext } from '../../contexts/AuthContext';
 import { postData } from '../../utils/api/common.api';
+import {
+	StyledContainerButtons,
+	StyledForm
+} from '../games-invitations/gamesInvitation.styles';
+import { StyledContainerInputs } from '../register/register.styles';
 
 const Message = ({ setContent, data }) => {
 	const { userData } = useContext(AuthContext);
@@ -9,8 +15,8 @@ const Message = ({ setContent, data }) => {
 	const userId = data._id;
 	return (
 		<div>
-			<form onSubmit={event => event.preventDefault()}>
-				<div>
+			<StyledForm onSubmit={event => event.preventDefault()}>
+				<StyledContainerInputs>
 					<label htmlFor='message'>Mensaje</label>
 					<textarea
 						name='message'
@@ -21,8 +27,8 @@ const Message = ({ setContent, data }) => {
 							getInputValues(event.target, infoMessage, setInfoMessage)
 						}
 					></textarea>
-				</div>
-				<div>
+				</StyledContainerInputs>
+				<StyledContainerInputs>
 					<label htmlFor='average'>Valoracion</label>
 					<select
 						name='average'
@@ -38,16 +44,18 @@ const Message = ({ setContent, data }) => {
 						<option value='4'>4</option>
 						<option value='5'>5</option>
 					</select>
-				</div>
-				<div>
-					<button onClick={() => postMessage(userId, infoMessage, setContent)}>
+				</StyledContainerInputs>
+				<StyledContainerButtons>
+					<StyledButton
+						onClick={() => postMessage(userId, infoMessage, setContent)}
+					>
 						Publicar
-					</button>
-					<button type='button' onClick={() => setContent()}>
+					</StyledButton>
+					<StyledButton type='button' onClick={() => setContent()}>
 						Cancelar
-					</button>
-				</div>
-			</form>
+					</StyledButton>
+				</StyledContainerButtons>
+			</StyledForm>
 		</div>
 	);
 };

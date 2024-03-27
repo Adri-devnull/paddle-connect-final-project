@@ -9,6 +9,7 @@ import {
 	StyledImage,
 	StyledInfo,
 	StyledSpan,
+	SytledContainer,
 	SytledPlayerInfoContainer
 } from './playerInfo.styles';
 
@@ -18,8 +19,9 @@ const PlayerInfo = () => {
 	const { userData } = useContext(AuthContext);
 	const data = location.state.player;
 	const [content, setContent] = useState();
+	console.log(data);
 	return (
-		<>
+		<SytledContainer>
 			<SytledPlayerInfoContainer>
 				<div>
 					<StyledImage src={data.img} alt='user image' />
@@ -43,10 +45,13 @@ const PlayerInfo = () => {
 					<StyledInfo>
 						<StyledSpan>Posicion:</StyledSpan> {data.position}
 					</StyledInfo>
+					<StyledInfo>
+						<StyledSpan>Created:</StyledSpan> {data.createdAt.substring(0, 10)}
+					</StyledInfo>
 				</div>
 				<StyledButtonsContainer>
 					<StyledButton onClick={() => navigate('/')}>Volver</StyledButton>
-					{userData.id !== data._id && (
+					{userData?.id !== data._id && (
 						<StyledButton
 							onClick={() =>
 								setContent(<Message setContent={setContent} data={data} />)
@@ -58,7 +63,7 @@ const PlayerInfo = () => {
 				</StyledButtonsContainer>
 			</SytledPlayerInfoContainer>
 			<Modal withButtonClose={false}>{content}</Modal>
-		</>
+		</SytledContainer>
 	);
 };
 
