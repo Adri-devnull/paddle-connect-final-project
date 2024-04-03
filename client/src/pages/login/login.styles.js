@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const StyledLoginForm = styled.form`
 	width: 350px;
 	height: auto;
+	margin: 0 auto;
 	background-color: #f4f4f4;
 	border-radius: 10px;
 	display: flex;

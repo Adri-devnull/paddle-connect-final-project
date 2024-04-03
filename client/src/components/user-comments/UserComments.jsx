@@ -3,29 +3,41 @@ import { useNavigate } from 'react-router-dom';
 import { URLS } from '../../constants/urls';
 import { AuthContext } from '../../contexts/AuthContext';
 import { getData } from '../../utils/api/common.api';
+import RatingStars from '../rating-stars/RatingStars';
+import {
+	StyledButton,
+	StyledComment,
+	StyledComments,
+	StyledCommentsContainer,
+	StyledRatingContainer
+} from './user-comments.styles';
 
 const UserComments = () => {
 	const [messages, setMessages] = useState([]);
 	const { userData } = useContext(AuthContext);
 	const navigate = useNavigate();
+	console.log(messages);
 	useEffect(() => {
 		getAllMessages(userData, setMessages);
 	}, []);
 
 	return (
-		<div>
-			<div>
-				<h2>Los comentarios de este jugador son: </h2>
+		<StyledCommentsContainer>
+			<StyledComments>
+				{!messages && <p>No hay ningun mensaje</p>}
 				{messages.map(msg => (
-					<div key={msg._id}>
-						<h2>{msg.userSender.name}</h2>
-						<h2>{msg.message}</h2>
-						<h2>{msg.average}</h2>
-					</div>
+					<StyledComment key={msg._id}>
+						<h3>{msg.userSender.name.toUpperCase()}</h3>
+						<p>{msg.message}</p>
+						<StyledRatingContainer>
+							Valoracion:
+							<RatingStars average={msg.average} />
+						</StyledRatingContainer>
+					</StyledComment>
 				))}
-				<button onClick={() => navigate('/')}>Volver</button>
-			</div>
-		</div>
+			</StyledComments>
+			<StyledButton onClick={() => navigate('/')}>Volver</StyledButton>
+		</StyledCommentsContainer>
 	);
 };
 

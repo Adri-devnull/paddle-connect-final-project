@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const StyledRegisterForm = styled.div`
 	width: 400px;
 	height: auto;
+	margin: 0 auto;
 	background-color: #f4f4f4;
 	border-radius: 10px;
 	display: flex;
@@ -14,6 +15,10 @@ const StyledRegisterForm = styled.div`
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 	max-height: calc(100vh - 20px);
 	overflow-y: auto;
+
+	@media screen and (min-width: 768px) {
+		width: 600px;
+	}
 `;
 
 const StyledLogo = styled.img`
@@ -21,6 +26,10 @@ const StyledLogo = styled.img`
 	width: 170px;
 	height: 130px;
 	object-fit: cover;
+	@media screen and (min-width: 768px) {
+		width: 200px;
+		height: 150px;
+	}
 `;
 
 const StyledContainerInputs = styled.div`
@@ -61,17 +70,15 @@ const StyledButtonAvatar = styled.button`
 	color: #000;
 	border: none;
 	border-radius: 15px 10px;
-	padding: 5px;
+	padding: 10px;
 	height: 35px;
-	font-size: 0.8em;
-	font-weight: 600;
+	font-size: 1em;
 	outline: none;
 `;
 
 const StyledImageAvatar = styled.img`
-	height: 80px;
+	height: 90px;
 	border-radius: 50%;
-	border: 1px solid #000;
 `;
 
 const StyledPositionsContainer = styled.div`

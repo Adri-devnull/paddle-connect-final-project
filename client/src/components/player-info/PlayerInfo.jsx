@@ -6,10 +6,10 @@ import Modal from '../modal/Modal';
 import {
 	StyledButton,
 	StyledButtonsContainer,
+	StyledContainer,
 	StyledImage,
 	StyledInfo,
 	StyledSpan,
-	SytledContainer,
 	SytledPlayerInfoContainer
 } from './playerInfo.styles';
 
@@ -19,9 +19,8 @@ const PlayerInfo = () => {
 	const { userData } = useContext(AuthContext);
 	const data = location.state.player;
 	const [content, setContent] = useState();
-	console.log(data);
 	return (
-		<SytledContainer>
+		<StyledContainer>
 			<SytledPlayerInfoContainer>
 				<div>
 					<StyledImage src={data.img} alt='user image' />
@@ -63,7 +62,7 @@ const PlayerInfo = () => {
 				</StyledButtonsContainer>
 			</SytledPlayerInfoContainer>
 			<Modal withButtonClose={false}>{content}</Modal>
-		</SytledContainer>
+		</StyledContainer>
 	);
 };
 

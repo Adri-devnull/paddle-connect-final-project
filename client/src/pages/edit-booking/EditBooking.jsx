@@ -1,7 +1,17 @@
 import { useContext, useEffect, useState } from 'react';
+import {
+	StyledButton,
+	StyledButtonsContainer
+} from '../../components/player-info/playerInfo.styles';
 import { URLS } from '../../constants/urls';
 import { AuthContext } from '../../contexts/AuthContext';
 import { getDataById, patchData } from '../../utils/api/common.api';
+import {
+	StyledForm,
+	StyledInputsContainer,
+	StyledLabels,
+	StyledScheduleContainer
+} from './editbooking.styles';
 
 const EditBooking = ({
 	setContent,
@@ -18,37 +28,37 @@ const EditBooking = ({
 	}, []);
 
 	return (
-		<div>
-			<form
-				onSubmit={event =>
-					updateBookingOfUser(
-						event,
-						bookingInfo,
-						setContent,
-						playersWaitingForGame,
-						setPlayersWaitingForGame
-					)
-				}
-			>
+		<StyledForm
+			onSubmit={event =>
+				updateBookingOfUser(
+					event,
+					bookingInfo,
+					setContent,
+					playersWaitingForGame,
+					setPlayersWaitingForGame
+				)
+			}
+		>
+			<div>
+				<StyledLabels htmlFor='turn'>Selecciona Turno</StyledLabels>
 				<div>
-					<label htmlFor='turn'>Selecciona Turno</label>
-					<div>
-						<label htmlFor='turn'>Manana</label>
-						<input
-							type='radio'
-							name='turn'
-							value='0'
-							onChange={event => setTurn(Number(event.target.value))}
-						/>
-						<label htmlFor='turn'>Tarde</label>
-						<input
-							type='radio'
-							name='turn'
-							value='1'
-							onChange={event => setTurn(Number(event.target.value))}
-						/>
-					</div>
-					<label htmlFor='schedule'>Horario</label>
+					<label htmlFor='turn'>Mañana</label>
+					<input
+						type='radio'
+						name='turn'
+						value='0'
+						onChange={event => setTurn(Number(event.target.value))}
+					/>
+					<label htmlFor='turn'>Tarde</label>
+					<input
+						type='radio'
+						name='turn'
+						value='1'
+						onChange={event => setTurn(Number(event.target.value))}
+					/>
+				</div>
+				<StyledScheduleContainer>
+					<StyledLabels htmlFor='schedule'>Horario</StyledLabels>
 					<select
 						name='scheduleStart'
 						id='schedule'
@@ -117,40 +127,40 @@ const EditBooking = ({
 							</>
 						)}
 					</select>
-				</div>
-				<div>
-					<label htmlFor='location'>Localizacion</label>
-					<input
-						type='text'
-						id='location'
-						name='location'
-						onChange={event =>
-							getFormValues(event.target, bookingInfo, setBookingInfo)
-						}
-						defaultValue={bookingInfo.location}
-					/>
-				</div>
-				<div>
-					<label htmlFor='message'>Message</label>
-					<textarea
-						id='message'
-						name='message'
-						cols='20'
-						rows='4'
-						onChange={event =>
-							getFormValues(event.target, bookingInfo, setBookingInfo)
-						}
-						defaultValue={bookingInfo.message}
-					/>
-				</div>
-				<div>
-					<button>Guardar cambios</button>
-					<button type='button' onClick={() => setContent()}>
-						Cancelar
-					</button>
-				</div>
-			</form>
-		</div>
+				</StyledScheduleContainer>
+			</div>
+			<StyledInputsContainer>
+				<StyledLabels htmlFor='location'>Localizacion</StyledLabels>
+				<input
+					type='text'
+					id='location'
+					name='location'
+					onChange={event =>
+						getFormValues(event.target, bookingInfo, setBookingInfo)
+					}
+					defaultValue={bookingInfo.location}
+				/>
+			</StyledInputsContainer>
+			<StyledInputsContainer>
+				<StyledLabels htmlFor='message'>Message</StyledLabels>
+				<textarea
+					id='message'
+					name='message'
+					cols='20'
+					rows='4'
+					onChange={event =>
+						getFormValues(event.target, bookingInfo, setBookingInfo)
+					}
+					defaultValue={bookingInfo.message}
+				/>
+			</StyledInputsContainer>
+			<StyledButtonsContainer>
+				<StyledButton>Guardar cambios</StyledButton>
+				<StyledButton type='button' onClick={() => setContent()}>
+					Cancelar
+				</StyledButton>
+			</StyledButtonsContainer>
+		</StyledForm>
 	);
 };
 

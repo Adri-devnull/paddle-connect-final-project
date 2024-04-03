@@ -1,22 +1,12 @@
 import styled from 'styled-components';
 
-const StyledContainer = styled.div`
-	padding: 0px 40px;
-`;
-
 const SytledPlayerInfoContainer = styled.div`
-	background: linear-gradient(
-		145deg,
-		rgba(49, 58, 75, 1) 0%,
-		rgba(39, 48, 63, 1) 100%
-	);
-	border: 1px solid rgba(202, 223, 112, 0.4);
+	height: calc(100vh - 230px);
 	color: #fff;
-	margin: 30px;
 	padding: 30px;
-	border-radius: 20px;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	gap: 15px;
 	margin: 0 auto;
 `;
@@ -28,14 +18,7 @@ const StyledImage = styled.img`
 
 const StyledButtonsContainer = styled.div`
 	display: flex;
-	gap: 10px;
-	margin-top: 20px;
-`;
-
-const StyledSpan = styled.span`
-	font-weight: 800;
-	margin-right: 3px;
-	color: rgba(202, 223, 112, 0.8);
+	gap: 15px;
 `;
 
 const StyledButton = styled.button`
@@ -45,7 +28,7 @@ const StyledButton = styled.button`
 	border: none;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	font-family: 'Montserrat', sans-serif;
-	font-weight: 700;
+	font-weight: 600;
 	font-size: 0.9em;
 
 	@media screen and (min-width: 768px) {
@@ -53,16 +36,16 @@ const StyledButton = styled.button`
 	}
 `;
 
-const StyledInfo = styled.p`
-	font-weight: 500;
+const StyledSpan = styled.span`
+	font-weight: 600;
+	font-size: 1.1em;
+	color: #cadf70;
 `;
 
 export {
 	StyledButton,
 	StyledButtonsContainer,
-	StyledContainer,
 	StyledImage,
-	StyledInfo,
 	StyledSpan,
 	SytledPlayerInfoContainer
 };

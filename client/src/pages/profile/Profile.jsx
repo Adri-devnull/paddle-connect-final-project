@@ -3,31 +3,49 @@ import { useNavigate } from 'react-router-dom';
 import EditProfile from '../../components/edit-profile/EditProfile';
 import Modal from '../../components/modal/Modal';
 import { AuthContext } from '../../contexts/AuthContext';
+import {
+	StyledButton,
+	StyledButtonsContainer,
+	StyledImage,
+	StyledSpan,
+	SytledPlayerInfoContainer
+} from './profile.styles';
 // import { ListPlayersContext } from '../../contexts/ListPlayersContext';
 
 const Profile = () => {
 	const { userData, setUserData } = useContext(AuthContext);
-	// const { setPlayersWaitingForGame } = useContext(ListPlayersContext);
 	const [content, setContent] = useState();
 	const navigate = useNavigate();
 	return (
 		<>
-			<div>
+			<SytledPlayerInfoContainer>
 				{userData && (
 					<>
 						<div>
-							<img src='/assets/images/user.svg' alt='' />
+							<StyledImage src={userData.img} alt='user image' />
 						</div>
 						<div>
-							<p>Nombre: {userData.name}</p>
-							<p>Usuario: {userData.username}</p>
-							<p>Email: {userData.email}</p>
-							<p>Género: {userData.gender}</p>
-							<p>Nivel: {userData.level}</p>
-							<p>Posición: {userData.position}</p>
+							<p>
+								<StyledSpan>Nombre:</StyledSpan> {userData.name}
+							</p>
+							<p>
+								<StyledSpan>Usuario:</StyledSpan> {userData.username}
+							</p>
+							<p>
+								<StyledSpan>Email:</StyledSpan> {userData.email}
+							</p>
+							<p>
+								<StyledSpan>Género:</StyledSpan> {userData.gender}
+							</p>
+							<p>
+								<StyledSpan>Nivel:</StyledSpan> {userData.level}
+							</p>
+							<p>
+								<StyledSpan>Posición:</StyledSpan> {userData.position}
+							</p>
 						</div>
-						<div>
-							<button
+						<StyledButtonsContainer>
+							<StyledButton
 								onClick={() =>
 									setContent(
 										<EditProfile
@@ -38,14 +56,14 @@ const Profile = () => {
 								}
 							>
 								Editar perfil
-							</button>
-							<button>Eliminar mi cuenta</button>
-						</div>
-						<button onClick={() => navigate('/')}>Volver</button>
+							</StyledButton>
+							<StyledButton>Eliminar mi cuenta</StyledButton>
+						</StyledButtonsContainer>
+						<StyledButton onClick={() => navigate('/')}>Volver</StyledButton>
 					</>
 				)}
 				{!userData && <p>No hay datos de usuario disponibles.</p>}
-			</div>
+			</SytledPlayerInfoContainer>
 			<Modal withButtonClose={false}>{content}</Modal>
 		</>
 	);

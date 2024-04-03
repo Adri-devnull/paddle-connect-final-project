@@ -3,21 +3,22 @@ import { TABS } from '../../constants/tabs';
 import Profile from '../../pages/profile/Profile';
 import Invitations from '../invitations/Invitations';
 import UserComments from '../user-comments/UserComments';
+import { StyledTabsButton, StyledTabsContainer } from './tabs.styles';
 
 const TabsProfile = () => {
 	const [tab, setTab] = useState(0);
 	return (
 		<div>
-			<div>
+			<StyledTabsContainer>
 				{TABS.map((tab, index) => (
-					<button key={index} onClick={() => setTab(index)}>
+					<StyledTabsButton key={index} onClick={() => setTab(index)}>
 						{tab.name}
-					</button>
+					</StyledTabsButton>
 				))}
-			</div>
-			{tab === 2 && <Invitations />}
-			{tab === 1 && <UserComments />}
+			</StyledTabsContainer>
 			{tab === 0 && <Profile />}
+			{tab === 1 && <UserComments />}
+			{tab === 2 && <Invitations />}
 		</div>
 	);
 };

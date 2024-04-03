@@ -21,7 +21,6 @@ import {
 const Register = ({ setContent }) => {
 	// ESTADO QUE GUARDA LA INFORMACION DEL NUEVO USUARIO
 	const [infoUser, setInfoUser] = useState({});
-	console.log(infoUser);
 	return (
 		<div>
 			<StyledRegisterForm onSubmit={handleSubmit}>
