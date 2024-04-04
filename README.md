@@ -13,6 +13,17 @@
 								You can register without a real email for now to see the
 								functionality of the application.</p><br><br>
 
+ <h2> User objectives 👤 </h2>
+ <ul>
+	<li>Sign up</li>
+	<li>Log in</li>
+	<li>Put oneself on the waiting list to be invited</li>
+	<li>Edit their reservation on the list</li>
+	<li>Invite a user created by them to view the functionality of invitations by logging into it</li>
+	<li>Leave a message to another user and rate it</li>
+	<li>View their profile and log out</li>
+ </ul><br><br>
+
 <h2> ¿What have I learned? 📖🙇🏻</h2>
 
 <p> How to use <b>Router-dom</b> to navigate between different pages. Using <b>contexts</b> to obtain information globally across all components for the logged-in user and the available players for playing. How to create a database using <b>MongoDB</b>, and most importantly, how to connect the client-side with the server-side using <b>Node.js</b> and the <b>Express</b> library to make everything more readable.</p> <br><br>
@@ -22,13 +33,7 @@
 
 <h2>Project Preview 📱</h2>
 
-![Captura del proyecto](https://github.com/eduardofierropro/Portafolio-y-CV/blob/main/CAPTURA-DEL-PROYECTO.jpg?raw=true)
-![Captura del proyecto](https://github.com/eduardofierropro/Portafolio-y-CV/blob/main/CAPTURA-DEL-PROYECTO.jpg?raw=true)
-![Captura del proyecto](https://github.com/eduardofierropro/Portafolio-y-CV/blob/main/CAPTURA-DEL-PROYECTO.jpg?raw=true)
-
 ## Autor ✒️
-
-**TU NOMBRE**
 
 - [micorreo@midominio.com](micorreo@midominio.com)
 - [LinkedIn](https://www.linkedin.com/in/tu-url-de-linkedin/)
