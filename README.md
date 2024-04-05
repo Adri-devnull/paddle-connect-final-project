@@ -41,9 +41,9 @@
 
 <h2>Project Preview 📱</h2>
 <div style="display: flex;">
-    <img src="https://github.com/Adri-devnull/Adri-devnull/blob/main/register-desk.PNG" alt="register" style="width: 320px; height: 250px; margin-right: 10px;">
-    <img src="https://github.com/Adri-devnull/Adri-devnull/blob/main/booking.PNG" alt="booking" style="width: 320px; height: 250px; margin-right: 10px;">
-    <img src="https://github.com/Adri-devnull/Adri-devnull/blob/main/profile-desk.PNG" alt="profile" style="width: 320px; height: 250px;">
+    <img src="https://github.com/Adri-devnull/Adri-devnull/blob/main/register-desk.PNG" alt="register" style="width: 410px; height: 250px; margin-right: 10px;">
+    <img src="https://github.com/Adri-devnull/Adri-devnull/blob/main/booking.PNG" alt="booking" style="width: 410px; height: 250px; margin-right: 10px;">
+    <img src="https://github.com/Adri-devnull/Adri-devnull/blob/main/profile-desk.PNG" alt="profile" style="width: 410px; height: 250px;">
 </div>
 
 <h2>Author ✒️</h2> 
