@@ -29,7 +29,7 @@
 <p> How to use <b>Router-dom</b> to navigate between different pages. Using <b>contexts</b> to obtain information globally across all components for the logged-in user and the available players for playing. How to create a database using <b>MongoDB</b>, and most importantly, how to connect the client-side with the server-side using <b>Node.js</b> and the <b>Express</b> library to make everything more readable.</p> <br><br>
 
 <h2>Technologies 🛠</h2> 
-<img width="400px"  src="https://skillicons.dev/icons?i=html,css,js,react,nodejs,express,mongodb,npm&perline=8"  /> <br><br>
+<img width="400px"  src="https://skillicons.dev/icons?i=html,css,js,react,nodejs,express,mongodb,npm,vite&perline=9"  /> <br><br>
 
 <h2>Project Preview 📱</h2>
 
