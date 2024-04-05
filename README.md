@@ -18,7 +18,7 @@
 	<li>Clone the repo: <b>https://github.com/Adri-devnull/paddle-connect-final-project.git</b></li>
 	<li>Do the "npm install" command for client and server folders</li>
 	<li>Do the "npm run dev" command for client and server folders</li>
-	<li>Enjoy testing the web 🎉🎉</li>
+	<li>Enjoy testing the application 🎉🎉</li>
 </ol><br><br>
 
  <h2> User objectives 👤 </h2>
@@ -42,7 +42,7 @@
 <h2>Project Preview 📱</h2>
 
 <h2>Author ✒️</h2> 
-
+<p>Contact me via Gmail or LinkedIn if you liked it or visit my portfolio to see more projects. </p>
  <p>
 	<a href="mailto:adri.devnull@gmail.com" target="_blank" ><img img src="https://img.shields.io/badge/gmail-%23EA4335.svg?style=plastic&logo=gmail&logoColor=white" alt="Gmail"/></a>
 	<a href="https://www.linkedin.com/in/adribermejo"><img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?style=plastic&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
