@@ -8,13 +8,14 @@ import {
 	StyledForm
 } from '../games-invitations/gamesInvitation.styles';
 import { StyledContainerInputs } from '../register/register.styles';
+import { StyledMainContainer } from './message.styles';
 
 const Message = ({ setContent, data }) => {
 	const { userData } = useContext(AuthContext);
 	const [infoMessage, setInfoMessage] = useState({ senderId: userData.id });
 	const userId = data._id;
 	return (
-		<div>
+		<StyledMainContainer>
 			<StyledForm onSubmit={event => event.preventDefault()}>
 				<StyledContainerInputs>
 					<label htmlFor='message'>Mensaje</label>
@@ -56,7 +57,7 @@ const Message = ({ setContent, data }) => {
 					</StyledButton>
 				</StyledContainerButtons>
 			</StyledForm>
-		</div>
+		</StyledMainContainer>
 	);
 };
 

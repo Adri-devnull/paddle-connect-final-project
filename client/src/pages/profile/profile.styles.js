@@ -20,22 +20,34 @@ const StyledButtonsContainer = styled.div`
 	display: flex;
 	gap: 15px;
 `;
-
 const StyledButton = styled.button`
 	background-color: #cadf70;
-	border-radius: 5px 2px 5px 2px;
-	padding: 10px 12px;
+	color: #11161e;
+	border-radius: 5px;
+	padding: 6px 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	border: none;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 600;
-	font-size: 0.9em;
+	font-size: 0.75em;
+	transition: transform 0.2s ease-in-out;
+
+	&:hover {
+		transform: translateY(-2px);
+	}
 
 	@media screen and (min-width: 768px) {
-		cursor: pointer;
+		padding: 9px 11px;
+		font-size: 0.9em;
+
+		&:hover {
+			cursor: pointer;
+			background-color: #e1ec9f;
+		}
 	}
 `;
-
 const StyledSpan = styled.span`
 	font-weight: 600;
 	font-size: 1.1em;

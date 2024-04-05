@@ -66,6 +66,9 @@ const StyledButton = styled.button`
 	color: #11161e;
 	border-radius: 5px;
 	padding: 6px 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: 80px;
 	border: none;
 	font-family: 'Montserrat', sans-serif;

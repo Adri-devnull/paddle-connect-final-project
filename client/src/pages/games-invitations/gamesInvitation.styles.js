@@ -15,6 +15,13 @@ const StyledForm = styled.form`
 	gap: 15px;
 `;
 
+const StyledMainContainer = styled.div`
+	@media screen and (min-width: 768px) {
+		width: 600px;
+		margin: 0 auto;
+	}
+`;
+
 const StyledContainerInputs = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -25,6 +32,7 @@ const StyledContainerInputs = styled.div`
 const StyledContainerButtons = styled.div`
 	display: flex;
 	gap: 12px;
+	justify-content: center;
 `;
 
 const StyledTitle = styled.h3`
@@ -33,9 +41,17 @@ const StyledTitle = styled.h3`
 	font-size: 1.2em;
 `;
 
+const StyledLabels = styled.label`
+	color: #cadf70;
+	font-weight: 600;
+	margin-bottom: 5px;
+`;
+
 export {
 	StyledContainerButtons,
 	StyledContainerInputs,
 	StyledForm,
+	StyledLabels,
+	StyledMainContainer,
 	StyledTitle
 };

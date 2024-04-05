@@ -2,6 +2,11 @@ import styled from 'styled-components';
 
 const StyledContainer = styled.div`
 	padding: 0px 40px;
+	height: calc(100vh - 190px);
+
+	@media screen and (min-width: 768px) {
+		height: calc(100vh - 174px);
+	}
 `;
 
 const SytledPlayerInfoContainer = styled.div`
@@ -17,8 +22,13 @@ const SytledPlayerInfoContainer = styled.div`
 	border-radius: 20px;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	gap: 15px;
 	margin: 0 auto;
+
+	@media screen and (min-width: 768px) {
+		max-width: 600px;
+	}
 `;
 
 const StyledImage = styled.img`
@@ -38,23 +48,37 @@ const StyledSpan = styled.span`
 	color: rgba(202, 223, 112, 0.8);
 `;
 
-const StyledButton = styled.button`
-	background-color: #cadf70;
-	border-radius: 5px 2px 5px 2px;
-	padding: 10px 12px;
-	border: none;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 700;
-	font-size: 0.9em;
-
-	@media screen and (min-width: 768px) {
-		cursor: pointer;
-	}
-`;
-
 const StyledInfo = styled.p`
 	font-weight: 500;
+`;
+
+const StyledButton = styled.button`
+	background-color: #cadf70;
+	color: #11161e;
+	border-radius: 5px;
+	padding: 6px 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	font-size: 0.75em;
+	transition: transform 0.2s ease-in-out;
+
+	&:hover {
+		transform: translateY(-2px);
+	}
+
+	@media screen and (min-width: 768px) {
+		padding: 9px 11px;
+		font-size: 0.9em;
+
+		&:hover {
+			cursor: pointer;
+			background-color: #e1ec9f;
+		}
+	}
 `;
 
 export {

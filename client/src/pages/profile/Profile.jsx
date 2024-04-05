@@ -10,7 +10,6 @@ import {
 	StyledSpan,
 	SytledPlayerInfoContainer
 } from './profile.styles';
-// import { ListPlayersContext } from '../../contexts/ListPlayersContext';
 
 const Profile = () => {
 	const { userData, setUserData } = useContext(AuthContext);

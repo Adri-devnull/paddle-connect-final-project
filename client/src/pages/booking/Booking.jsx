@@ -1,7 +1,20 @@
 import { useContext, useState } from 'react';
+import { StyledButton } from '../../components/player/styles';
 import { URLS } from '../../constants/urls';
 import { AuthContext } from '../../contexts/AuthContext';
 import { postData } from '../../utils/api/common.api';
+import {
+	StyledContainerInputs,
+	StyledInput
+} from '../register/register.styles';
+import {
+	StyledButtonsContainer,
+	StyledForm,
+	StyledLabels,
+	StyledMainContainer,
+	StyledScheduleContainer,
+	StyledSelect
+} from './styles.booking';
 
 const Booking = ({ setContent, setPlayersWaitingForGame }) => {
 	const [turn, setTurn] = useState(0);
@@ -9,8 +22,8 @@ const Booking = ({ setContent, setPlayersWaitingForGame }) => {
 	const { userData, setUserData } = useContext(AuthContext);
 	const id = userData.id;
 	return (
-		<div>
-			<form
+		<StyledMainContainer>
+			<StyledForm
 				onSubmit={event =>
 					signUpAvaiblePlayerList(
 						event,
@@ -23,9 +36,9 @@ const Booking = ({ setContent, setPlayersWaitingForGame }) => {
 					)
 				}
 			>
-				<div>
-					<label htmlFor='turn'>Selecciona Turno</label>
-					<div>
+				<StyledContainerInputs>
+					<StyledLabels htmlFor='turn'>Selecciona Turno</StyledLabels>
+					<StyledScheduleContainer>
 						<label htmlFor='turn'>Manana</label>
 						<input
 							type='radio'
@@ -40,16 +53,16 @@ const Booking = ({ setContent, setPlayersWaitingForGame }) => {
 							value='1'
 							onChange={event => setTurn(Number(event.target.value))}
 						/>
-					</div>
-					<label htmlFor='schedule'>Horario</label>
-					<select
+					</StyledScheduleContainer>
+					<StyledLabels htmlFor='schedule'>Horario</StyledLabels>
+					<StyledSelect
 						name='scheduleStart'
 						id='schedule'
 						onChange={event =>
 							getInputValues(event.target, bookingInfo, setBookingInfo)
 						}
 					>
-						<option>Selecciona horario que tienes disponible </option>
+						<option>Selecciona horario disponible</option>
 						{turn === 0 && (
 							<>
 								<option value='08:00'>08:00</option>
@@ -75,15 +88,15 @@ const Booking = ({ setContent, setPlayersWaitingForGame }) => {
 								<option value='23:00'>23:00</option>
 							</>
 						)}
-					</select>
-					<select
+					</StyledSelect>
+					<StyledSelect
 						name='scheduleEnd'
 						id='schedule'
 						onChange={event =>
 							getInputValues(event.target, bookingInfo, setBookingInfo)
 						}
 					>
-						<option>Selecciona horario que tienes disponible</option>
+						<option>Selecciona horario disponible</option>
 						{turn === 0 && (
 							<>
 								<option value='08:00'>08:00</option>
@@ -109,11 +122,11 @@ const Booking = ({ setContent, setPlayersWaitingForGame }) => {
 								<option value='23:00'>23:00</option>
 							</>
 						)}
-					</select>
-				</div>
-				<div>
-					<label htmlFor='location'>Localizacion</label>
-					<input
+					</StyledSelect>
+				</StyledContainerInputs>
+				<StyledContainerInputs>
+					<StyledLabels htmlFor='location'>Localizacion</StyledLabels>
+					<StyledInput
 						type='text'
 						id='location'
 						name='location'
@@ -121,10 +134,10 @@ const Booking = ({ setContent, setPlayersWaitingForGame }) => {
 							getInputValues(event.target, bookingInfo, setBookingInfo)
 						}
 					/>
-				</div>
-				<div>
-					<label htmlFor='message'>Message</label>
-					<input
+				</StyledContainerInputs>
+				<StyledContainerInputs>
+					<StyledLabels htmlFor='message'>Message</StyledLabels>
+					<StyledInput
 						type='text'
 						id='message'
 						name='message'
@@ -132,15 +145,15 @@ const Booking = ({ setContent, setPlayersWaitingForGame }) => {
 							getInputValues(event.target, bookingInfo, setBookingInfo)
 						}
 					/>
-				</div>
-				<div>
-					<button>Apuntarme</button>
-					<button type='button' onClick={() => setContent()}>
+				</StyledContainerInputs>
+				<StyledButtonsContainer>
+					<StyledButton>Apuntarme</StyledButton>
+					<StyledButton type='button' onClick={() => setContent()}>
 						Cancelar
-					</button>
-				</div>
-			</form>
-		</div>
+					</StyledButton>
+				</StyledButtonsContainer>
+			</StyledForm>
+		</StyledMainContainer>
 	);
 };
 

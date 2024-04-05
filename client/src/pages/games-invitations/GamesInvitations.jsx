@@ -9,6 +9,8 @@ import {
 	StyledContainerButtons,
 	StyledContainerInputs,
 	StyledForm,
+	StyledLabels,
+	StyledMainContainer,
 	StyledTitle
 } from './gamesInvitation.styles';
 
@@ -18,8 +20,8 @@ const GamesInvitations = ({ setContent, player }) => {
 	const { userData } = useContext(AuthContext);
 
 	return (
-		<div>
-			<StyledTitle>Jugador a invitar: </StyledTitle>
+		<StyledMainContainer>
+			<StyledTitle>Vas a invitar a: </StyledTitle>
 			<PlayerInfoInvited player={player} />
 			<StyledForm
 				onSubmit={event =>
@@ -33,7 +35,7 @@ const GamesInvitations = ({ setContent, player }) => {
 				}
 			>
 				<StyledContainerInputs>
-					<label htmlFor='location'>Localizacion</label>
+					<StyledLabels htmlFor='location'>Localizacion</StyledLabels>
 					<StyledInput
 						type='text'
 						name='location'
@@ -44,7 +46,7 @@ const GamesInvitations = ({ setContent, player }) => {
 					/>
 				</StyledContainerInputs>
 				<StyledContainerInputs>
-					<label htmlFor='schedule'>Horario</label>
+					<StyledLabels htmlFor='schedule'>Horario</StyledLabels>
 					<StyledInput
 						type='text'
 						name='schedule'
@@ -55,7 +57,7 @@ const GamesInvitations = ({ setContent, player }) => {
 					/>
 				</StyledContainerInputs>
 				<StyledContainerInputs>
-					<label htmlFor='message'>Mensaje</label>
+					<StyledLabels htmlFor='message'>Mensaje</StyledLabels>
 					<textarea
 						name='message'
 						id='message'
@@ -73,7 +75,7 @@ const GamesInvitations = ({ setContent, player }) => {
 					</StyledButton>
 				</StyledContainerButtons>
 			</StyledForm>
-		</div>
+		</StyledMainContainer>
 	);
 };
 

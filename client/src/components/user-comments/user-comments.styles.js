@@ -7,6 +7,11 @@ const StyledCommentsContainer = styled.div`
 
 const StyledComments = styled.div`
 	margin-bottom: 30px;
+
+	@media screen and (min-width: 768px) {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
 `;
 
 const StyledComment = styled.div`

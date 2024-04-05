@@ -61,6 +61,8 @@ const StyledSpanTitle = styled.span`
 const StyledSpanHello = styled.span`
 	display: inline-block;
 	margin-bottom: 10px;
+	font-weight: 500;
+	font-size: 1em;
 	@media screen and (min-width: 768px) {
 		margin-bottom: 0px;
 		margin-right: 15px;

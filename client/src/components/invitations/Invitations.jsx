@@ -3,6 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { URLS } from '../../constants/urls';
 import { AuthContext } from '../../contexts/AuthContext';
 import { getDataById } from '../../utils/api/common.api';
+import {
+	StyledButton,
+	StyledButtonsContainer,
+	StyledInvitation,
+	StyledInvitationsContainer,
+	StyledSpans,
+	StyledTitle
+} from './invitation.styles';
 
 const Invitations = () => {
 	const { userData } = useContext(AuthContext);
@@ -15,22 +23,34 @@ const Invitations = () => {
 		getAllInvitations(userData, setInvitations, setNumberOfInvitations);
 	}, []);
 	return (
-		<div>
-			<h2>Invitaciones a partidos ({numberOfInvitations})</h2>
+		<StyledInvitationsContainer>
+			<StyledTitle>
+				Tienes <span>{numberOfInvitations}</span> invitacion
+				{numberOfInvitations === 1 ? '' : 'es'} a partidos.
+			</StyledTitle>
 			{invitations.map(invitation => (
-				<div key={invitation._id}>
-					<h2>Invitacion de: {invitation.senderUserName}</h2>
-					<h2>Localizacion: {invitation.location}</h2>
-					<h2>Hora partido: {invitation.schedule}</h2>
-					<h2>Mensaje: {invitation.message}</h2>
-					<div>
-						<button>Aceptar invitacion</button>
-						<button>Cancelar invitacion</button>
-					</div>
-				</div>
+				<StyledInvitation key={invitation._id}>
+					<p>
+						<StyledSpans>Te ha invitado:</StyledSpans>{' '}
+						{invitation.senderUserName}
+					</p>
+					<p>
+						<StyledSpans>Localizacion:</StyledSpans> {invitation.location}
+					</p>
+					<p>
+						<StyledSpans>Hora partido:</StyledSpans> {invitation.schedule}
+					</p>
+					<p>
+						<StyledSpans>Mensaje:</StyledSpans> {invitation.message}
+					</p>
+					<StyledButtonsContainer>
+						<StyledButton>Aceptar invitacion</StyledButton>
+						<StyledButton>Cancelar invitacion</StyledButton>
+					</StyledButtonsContainer>
+				</StyledInvitation>
 			))}
-			<button onClick={() => navigate('/')}>Volver</button>
-		</div>
+			<StyledButton onClick={() => navigate('/')}>Volver</StyledButton>
+		</StyledInvitationsContainer>
 	);
 };
 

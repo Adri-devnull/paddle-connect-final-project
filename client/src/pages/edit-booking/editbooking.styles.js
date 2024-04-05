@@ -13,6 +13,10 @@ const StyledForm = styled.div`
 	flex-direction: column;
 	gap: 10px;
 	margin: 0 auto;
+
+	@media screen and (min-width: 768px) {
+		width: 650px;
+	}
 `;
 
 const StyledLabels = styled.label`

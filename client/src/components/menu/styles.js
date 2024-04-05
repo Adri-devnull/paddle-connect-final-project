@@ -38,6 +38,20 @@ const StyledButton = styled.button`
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 600;
 	font-size: 0.75em;
+	transition: transform 0.2s ease-in-out;
+
+	&:hover {
+		transform: translateY(-2px);
+	}
+
+	@media screen and (min-width: 768px) {
+		font-size: 0.9em;
+
+		&:hover {
+			cursor: pointer;
+			background-color: #e1ec9f;
+		}
+	}
 `;
 
 const StyledUserName = styled.span`

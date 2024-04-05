@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
 const StyledPlayerContainer = styled.div`
-	background-color: #687181;
+	background: linear-gradient(
+		145deg,
+		rgba(49, 58, 75, 1) 0%,
+		rgba(39, 48, 63, 1) 100%
+	);
 	display: flex;
 	flex-direction: column;
 	padding: 20px;

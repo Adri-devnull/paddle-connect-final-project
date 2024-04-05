@@ -15,6 +15,19 @@ const StyledTabsButton = styled.button`
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	font-weight: 600;
 	font-size: 1em;
+	transition: transform 0.2s ease-in-out;
+	&:hover {
+		transform: translateY(-2px);
+	}
+
+	@media screen and (min-width: 768px) {
+		font-size: 0.9em;
+
+		&:hover {
+			cursor: pointer;
+			background-color: #cadf70;
+		}
+	}
 `;
 
 export { StyledTabsButton, StyledTabsContainer };
