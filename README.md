@@ -40,6 +40,11 @@
 <img width="400px"  src="https://skillicons.dev/icons?i=html,css,js,react,nodejs,express,mongodb,npm,vite&perline=9"  /> <br><br>
 
 <h2>Project Preview 📱</h2>
+<div style="display: flex;">
+    <img src="https://github.com/Adri-devnull/Adri-devnull/blob/main/register-desk.PNG" alt="register" style="width: 300px; height: 200px; margin-right: 10px;">
+    <img src="https://github.com/Adri-devnull/Adri-devnull/blob/main/booking.PNG" alt="booking" style="width: 300px; height: 200px; margin-right: 10px;">
+    <img src="https://github.com/Adri-devnull/Adri-devnull/blob/main/profile-desk.PNG" alt="profile" style="width: 300px; height: 200px;">
+</div>
 
 <h2>Author ✒️</h2> 
 <p>Contact me via Gmail or LinkedIn if you liked it or visit my portfolio to see more projects. </p>
