@@ -13,6 +13,14 @@
 								You can register without a real email for now to see the
 								functionality of the application.</p><br><br>
 
+ <h2>Installation 🔧 </h2> 
+<ol>
+	<li>Clone the repo: <b>https://github.com/Adri-devnull/paddle-connect-final-project.git</b></li>
+	<li>Do the "npm install" command for client and server folders</li>
+	<li>Do the "npm run dev" command for client and server folders</li>
+	<li>Enjoy testing the web 🎉🎉</li>
+</ol><br><br>
+
  <h2> User objectives 👤 </h2>
  <ul>
 	<li>Sign up</li>
@@ -33,17 +41,13 @@
 
 <h2>Project Preview 📱</h2>
 
-## Autor ✒️
+<h2>Author ✒️</h2> 
 
-- [micorreo@midominio.com](micorreo@midominio.com)
-- [LinkedIn](https://www.linkedin.com/in/tu-url-de-linkedin/)
-- [Porfolio web](https://tu-dominio.com/)
+ <p>
+	<a href="mailto:adri.devnull@gmail.com" target="_blank" ><img img src="https://img.shields.io/badge/gmail-%23EA4335.svg?style=plastic&logo=gmail&logoColor=white" alt="Gmail"/></a>
+	<a href="https://www.linkedin.com/in/adribermejo"><img src="https://img.shields.io/badge/linkedin-%230A66C2.svg?style=plastic&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
+	 <a href="https://adribermejo.dev/" target="_blank" ><img src="https://img.shields.io/badge/DEV.TO-%230A0A0A.svg?&style=for-the-badge&logo=dev.to&logoColor=white"></a>
+</p>
 
-## Instalación
 
-Este proyecto no necesita de instalación. Simplemente abre la carpeta o haz doble click en el .html
 
-## Licencia 📄
-
-MIT Public License v3.0
-No puede usarse comencialmente.
